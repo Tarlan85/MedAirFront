@@ -40,7 +40,7 @@ const CanvasImages = (props) => {
                         brushRadius={20}
                         imgSrc={imgSrc}
                         saveData={
-                            savedDrawingCanvas[imgName]
+                            savedDrawingCanvas && savedDrawingCanvas[imgName]
                                 ? savedDrawingCanvas[imgName]
                                 : ""
                         }

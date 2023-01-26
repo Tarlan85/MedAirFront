@@ -83,7 +83,15 @@ export function useHandleSavePotient() {
 
 	const handleSavePotient = async () => {
 		message.loading({ content: "Loading...", key: "doc_save" });
-		let patientId = await fetchPatientid();
+
+        let id = formValues.Potient.patientId
+        let patientId
+        console.log('formValues',id)
+        if(id){
+            patientId = id
+        }else{
+            patientId = await fetchPatientid();
+        }
 		if (patientId) {
 			if (Object.keys(formValues.Anket).length) {
 				const {
