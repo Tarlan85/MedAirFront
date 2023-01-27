@@ -40,17 +40,18 @@ const UploadForm = ({ form }) => {
                 </Form.Item>
                 <Form.Item name="analyzesContent">
                     <Upload
-                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                    accept=".png,.pdf,.jpeg"
+                        action="http://localhost:3000/"
                         listType="picture"
-                        defaultFileList={[...fileList]}
+                        beforeUpload={(file) => {
+                            console.log({file})
+                            return false
+                        }}
+                        // defaultFileList={[...fileList]}
                         onChange={onChange}
                         onPreview={onPreview}
                     >
-                        {!fileList[0] ? (
                             <Button icon={<UploadOutlined />}>Upload</Button>
-                        ) : (
-                            ""
-                        )}
                     </Upload>
                 </Form.Item>
             </Form>
