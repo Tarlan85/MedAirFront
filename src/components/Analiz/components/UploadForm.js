@@ -40,7 +40,7 @@ const UploadForm = ({ form }) => {
                 </Form.Item>
                 <Form.Item name="analyzesContent">
                     <Upload
-                    accept=".png,.pdf,.jpeg"
+                    accept=".png,.pdf,.jpeg,.jpg"
                         action="http://localhost:3000/"
                         listType="picture"
                         beforeUpload={(file) => {

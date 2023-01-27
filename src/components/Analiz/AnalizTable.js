@@ -45,24 +45,6 @@ const AnalizTable = () => {
                     return row.analyzesContent?.fileList[0]?.name
                 }
             },
-            // {
-            //     title: "Image",
-            //     dataIndex: "Image",
-            //     key: "Image",
-            //     render: (value, row, index) => {
-            //         const { fileList: newFileList } = row.Image?.fileList
-            //         if (!newFileList) {
-            //             return;
-            //         }
-            //         return (
-            //             <Upload
-            //                 action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            //                 listType="picture"
-            //                 fileList={newFileList}
-            //             ></Upload>
-            //         );
-            //     },
-            // },
             {
                 title: "",
                 dataIndex: "delete",
