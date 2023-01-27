@@ -1,19 +1,18 @@
 import { Table } from "antd";
 import React, { useMemo } from "react";
+import { useGlobalContext } from "../../context/context";
 import DeleteTableRow from "../DeleteTableRow";
 import { useAnalizContext } from "./context";
-import useSetDataTableOnSelectedSearchPatient from "./hooks/useSetDataTableOnSelectedSearchPatient";
 
 const AnalizTable = () => {
     const {
-        dataSource,
-        setdataSource,
         setSelectedRowTable,
         activeRow,
         setActiveRow,
     } = useAnalizContext();
+    
+    const { analisesDataTable, setAnalisesDataTable } = useGlobalContext();
 
-    useSetDataTableOnSelectedSearchPatient()
 
     const columns = useMemo(() => {
         return [
@@ -54,14 +53,14 @@ const AnalizTable = () => {
                     return (
                         <DeleteTableRow
                             row={row}
-                            dataSource={dataSource}
-                            setDataSource={setdataSource}
+                            dataSource={analisesDataTable}
+                            setDataSource={setAnalisesDataTable}
                         />
                     );
                 },
             },
         ];
-    }, [dataSource]);
+    }, [analisesDataTable]);
 
     const onClickRow = (r) => {
         if(!r.key){
@@ -79,7 +78,7 @@ const AnalizTable = () => {
                 }
                 locale={{ emptyText: "Document is empty" }}
                 columns={columns}
-                dataSource={dataSource}
+                dataSource={analisesDataTable}
                 onRow={(r) => ({
                     onClick: (e) => onClickRow(r),
                 })}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useGlobalContext } from "../../../context/context";
 import { deepCopy } from "../../../functions/deepCopy";
 import { useAnalizContext } from "../context";
 import { other, breastSelectOpnions } from "../data";
@@ -9,8 +10,6 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
         setSelectedRowTable,
         isEdit,
         setIsEdit,
-        dataSource,
-        setdataSource,
         setActiveRow,
         setBreastType,
         setSelectOption,
@@ -18,11 +17,13 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
         setIsModalOpen,
         setFileList,
     } = useAnalizContext();
+    
+    const { analisesDataTable, setAnalisesDataTable } = useGlobalContext();
 
     const [selectedRowId, setselectedRowId] = useState();
 
     const openOtherForm = (formObj) => {
-        const { analyzesType, subType, Image, analyzesSubeType } = formObj
+        const { analyzesType, subType, analyzesContent, analyzesSubeType } = formObj
         if(analyzesType){
             setBreastType(analyzesType)
             if (analyzesType === "Breast") {
@@ -38,8 +39,8 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
         if(subType){
             setSelectedUploadFormIteem(subType)
         }
-        if(Image){
-            const { fileList: newFileList } = Image;
+        if(analyzesContent){
+            const { fileList: newFileList } = analyzesContent;
             setFileList(newFileList);
         }
     }
@@ -58,17 +59,17 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
 
     useEffect(() => {
         if (isEdit) {
-            let findIndex = dataSource.findIndex(
+            let findIndex = analisesDataTable.findIndex(
                 (i) => i.Id === selectedRowId
             );
 
             let copydataForm = deepCopy(form.getFieldsValue());
             copydataForm.key = selectedRowId;
             copydataForm.Id = selectedRowId;
-            let copyDataSource = deepCopy(dataSource);
+            let copyDataSource = deepCopy(analisesDataTable);
             copydataForm.Moment = copyDataSource[findIndex].Moment
             copyDataSource[findIndex] = copydataForm;
-            setdataSource(copyDataSource);
+            setAnalisesDataTable(copyDataSource);
             putListToGlobalContext(copyDataSource);
             resetForm();
             setIsEdit();

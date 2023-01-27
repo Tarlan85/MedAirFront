@@ -8,8 +8,6 @@ import useEditRowTable from "./useEditRowTable";
 const useHandleOnClickButton = ({ form }) => {
     const {
         setIsModalOpen,
-        dataSource,
-        setdataSource,
         setActiveRow,
         setSelectOption,
         setSelectedUploadFormIteem,
@@ -18,6 +16,9 @@ const useHandleOnClickButton = ({ form }) => {
         setIsEdit,
         setIsNew,
     } = useAnalizContext();
+
+    const { analisesDataTable, setAnalisesDataTable } = useGlobalContext();
+
 
     
     const resetForm = () => {
@@ -45,8 +46,8 @@ const useHandleOnClickButton = ({ form }) => {
         copydataForm.key = new Date().getTime();
         copydataForm.Id = new Date().getTime();
         copydataForm.date = moment().format('YYYY-MM-DD HH:mm:ss')
-        setdataSource([...dataSource, copydataForm]);
-        putListToGlobalContext([...dataSource, copydataForm])
+        setAnalisesDataTable([...analisesDataTable, copydataForm]);
+        putListToGlobalContext([...analisesDataTable, copydataForm])
         resetForm();
         setActiveRow();
         setIsModalOpen(false);
@@ -57,8 +58,8 @@ const useHandleOnClickButton = ({ form }) => {
         copydataForm.key = new Date().getTime();
         copydataForm.Id = new Date().getTime();
         copydataForm.Moment = moment().format('YYYY-MM-DD HH:mm:ss')
-        setdataSource([...dataSource, copydataForm]);
-        putListToGlobalContext([...dataSource, copydataForm])
+        setAnalisesDataTable([...analisesDataTable, copydataForm]);
+        putListToGlobalContext([...analisesDataTable, copydataForm])
         resetForm();
         setActiveRow();
     };
