@@ -66,15 +66,16 @@ export function useHandleSavePotient() {
 	};
 	const putAnalyzis = async (obj) => {
 		console.log(obj);
-		// obj.analyzesMediaList.forEach((i) => {
-		// 	console.log("i.analyzesContent", i.analyzesContent);
-		// 	if (i.analyzesContent?.fileList) {
-		// 		const file = i.analyzesContent.fileList[0];
-		// 		const blob = new Blob([file], { type: file.type });
-		// 		console.log("blob", blob);
-		// 		i.analyzesContent = blob;
-		// 	}
-		// });
+		obj.analyzesMediaList.forEach((i) => {
+			console.log("i.analyzesContent", i.analyzesContent);
+			if (i.analyzesContent?.fileList) {
+				// const file = i.analyzesContent.fileList[0];
+				// const blob = new Blob([file], { type: file.type });
+				// console.log("blob", blob);
+				// i.analyzesContent = blob;
+				i.analyzesContent = i.analyzesContent?.fileList[0]
+			}
+		});
 		// .analyzesContent.file.originFileObj;
 		let res = await sendRequest("analyses", obj, "post");
 		messageOnSave(res, "Analyses");
