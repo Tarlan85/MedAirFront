@@ -51,6 +51,7 @@ export function useHandleSavePotient() {
 			JSON.stringify(descriptionsCanvas);
 		obj.deseaseImagesList = savedDrawingCanvas;
 		obj.deseaseHistoryDynamicsList = deseaseHistoryDynamicsList;
+
 		let res = await sendRequest("morby", obj, "post");
 		messageOnSave(res, "Morby");
 	};
@@ -64,6 +65,17 @@ export function useHandleSavePotient() {
 		messageOnSave(res, "Treatment");
 	};
 	const putAnalyzis = async (obj) => {
+		console.log(obj);
+		obj.analyzesMediaList.forEach((i) => {
+			console.log("i.analyzesContent", i.analyzesContent);
+			if (i.analyzesContent?.fileList) {
+				const file = i.analyzesContent.fileList[0];
+				const blob = new Blob([file], { type: file.type });
+				console.log("blob", blob);
+				i.analyzesContent = blob;
+			}
+		});
+		// .analyzesContent.file.originFileObj;
 		let res = await sendRequest("analyses", obj, "post");
 		messageOnSave(res, "Analyses");
 	};
@@ -79,19 +91,19 @@ export function useHandleSavePotient() {
 			});
 		}
 	};
-    //coment test
+	//coment test
 
 	const handleSavePotient = async () => {
 		message.loading({ content: "Loading...", key: "doc_save" });
 
-        let id = formValues.Potient.patientId
-        let patientId
-        console.log('formValues',formValues)
-        if(id){
-            patientId = id
-        }else{
-            patientId = await fetchPatientid();
-        }
+		let id = formValues.Potient.patientId;
+		let patientId;
+		console.log("formValues", formValues);
+		if (id) {
+			patientId = id;
+		} else {
+			patientId = await fetchPatientid();
+		}
 		if (patientId) {
 			if (Object.keys(formValues.Anket).length) {
 				const {

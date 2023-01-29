@@ -11,6 +11,13 @@ const UploadForm = ({ form }) => {
 
 	const onChange = (e) => {
 		const { fileList: newFileList } = e;
+        
+		const formData = new FormData();
+		formData.append("file", encodeURI);
+		console.log("formData", formData);
+
+		const blob = new Blob([e], { type: "image/jpg" });
+		console.log("blob", blob);
 		setFileList(newFileList);
 	};
 
@@ -31,7 +38,14 @@ const UploadForm = ({ form }) => {
 	};
 
 	const beforeUpload = (file) => {
-		console.log({ file });
+		console.log('file',file);
+        
+		const formData = new FormData();
+		formData.append("file", file);
+		console.log("formData", formData);
+
+		const blob = new Blob([file], { type: "image/jpg" });
+		console.log("blob", blob);
 		return false;
 	};
 
@@ -50,11 +64,15 @@ const UploadForm = ({ form }) => {
 					action="http://localhost:3000/"
 					listType="picture"
 					beforeUpload={beforeUpload}
-					defaultFileList={[ ...fileList ]}
+					defaultFileList={[...fileList]}
 					onChange={onChange}
 					onPreview={onPreview}
 				>
-					<Button icon={<UploadOutlined />}>Upload</Button>
+					{!fileList[0] ? (
+						<Button icon={<UploadOutlined />}>Upload</Button>
+					) : (
+						""
+					)}
 				</Upload>
 			</Form.Item>
 		</Form>
