@@ -14,11 +14,14 @@ const UploadForm = ({ form }) => {
 		const { fileList: newFileList } = e;
 		console.log("e", e);
 		console.log("newFileList", newFileList);
-
-		let res = sendRequest("analyses", { analizList: newFileList}, "post");
         
 		const formData = new FormData();
-		formData.append("file", encodeURI);
+		formData.append("file", newFileList[0]);
+
+		sendRequest("analyses", formData, "post");
+        
+		// const formData = new FormData();
+		// formData.append("file", newFileList[0]);
 		console.log("formData", formData);
 
 		const blob = new Blob([e], { type: "image/jpg" });
