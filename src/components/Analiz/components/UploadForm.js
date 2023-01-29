@@ -4,6 +4,7 @@ import React, { memo } from "react";
 import { styleInput } from "../../../date/styleInput";
 import { useAnalizContext } from "../context";
 import { UploadOutlined } from "@ant-design/icons";
+import sendRequest from "../../../api/sendRequest";
 
 const UploadForm = ({ form }) => {
 	const { selectedUploadFormIteem, fileList, setFileList } =
@@ -11,7 +12,7 @@ const UploadForm = ({ form }) => {
 
 	const onChange = (e) => {
 		const { fileList: newFileList } = e;
-		let res = await sendRequest("analyses", { analizList: newFileList}, "post");
+		let res = sendRequest("analyses", { analizList: newFileList}, "post");
         
 		const formData = new FormData();
 		formData.append("file", encodeURI);
