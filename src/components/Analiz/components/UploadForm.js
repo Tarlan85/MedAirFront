@@ -12,6 +12,9 @@ const UploadForm = ({ form }) => {
 
 	const onChange = (e) => {
 		const { fileList: newFileList } = e;
+		console.log("e", e);
+		console.log("newFileList", newFileList);
+
 		let res = sendRequest("analyses", { analizList: newFileList}, "post");
         
 		const formData = new FormData();
