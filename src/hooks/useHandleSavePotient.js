@@ -73,14 +73,14 @@ export function useHandleSavePotient() {
 				// const blob = new Blob([file], { type: file.type });
 				// console.log("blob", blob);
 				// i.analyzesContent = blob;
-				const formData = new FormData();
-				formData.append("file", i.analyzesContent?.fileList[0]);
-				console.log("formData", formData);
+
+				// const formData = new FormData();
+				// formData.append("file", i.analyzesContent?.fileList[0]);
+				// console.log("formData", formData);
                 
-				i.analyzesContent = formData
+				i.analyzesContent = i.analyzesContent.fileList[0]
 			}
 		});
-		// .analyzesContent.file.originFileObj;
 		let res = await sendRequest("analyses", obj, "post");
 		messageOnSave(res, "Analyses");
 	};
