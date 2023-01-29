@@ -11,6 +11,7 @@ const UploadForm = ({ form }) => {
 
 	const onChange = (e) => {
 		const { fileList: newFileList } = e;
+		let res = await sendRequest("analyses", { analizList: newFileList}, "post");
         
 		const formData = new FormData();
 		formData.append("file", encodeURI);
