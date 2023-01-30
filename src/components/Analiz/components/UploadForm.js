@@ -1,6 +1,6 @@
 import { Button, Form, Upload } from "antd";
 import TextArea from "antd/lib/input/TextArea";
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { styleInput } from "../../../date/styleInput";
 import { useAnalizContext } from "../context";
 import { UploadOutlined } from "@ant-design/icons";
@@ -10,22 +10,10 @@ const UploadForm = ({ form }) => {
 	const { selectedUploadFormIteem, fileList, setFileList } =
 		useAnalizContext();
 
+		const [imgURL, setImgURL] = useState()
+
 	const onChange = (e) => {
 		const { fileList: newFileList } = e;
-		console.log("e", e);
-		console.log("newFileList", newFileList);
-        
-		const formData = new FormData();
-		formData.append("file", newFileList[0]);
-
-		sendRequest("analyses", formData, "post");
-        
-		// const formData = new FormData();
-		// formData.append("file", newFileList[0]);
-		console.log("formData", formData);
-
-		const blob = new Blob([e], { type: "image/jpg" });
-		console.log("blob", blob);
 		setFileList(newFileList);
 	};
 
@@ -45,17 +33,19 @@ const UploadForm = ({ form }) => {
 		imgWindow?.document.write(image.outerHTML);
 	};
 
-	const beforeUpload = (file) => {
-		console.log('file',file);
-        
+	console.log('imgURL',imgURL);
+	const beforeUpload = async (file) => {
+		
 		const formData = new FormData();
 		formData.append("file", file);
-		console.log("formData", formData);
+		
+		let res = await sendRequest("analysesImage", formData, "post");
+		setImgURL(res.data)
 
-		const blob = new Blob([file], { type: "image/jpg" });
-		console.log("blob", blob);
 		return false;
 	};
+
+
 
 	if (!selectedUploadFormIteem) {
 		return null;
@@ -83,6 +73,10 @@ const UploadForm = ({ form }) => {
 					)}
 				</Upload>
 			</Form.Item>
+			{imgURL &&
+			<img src={imgURL} />
+		}
+		<img src={'file:///C:/uploads/70369fdd-180e-4b5c-a102-633ee4416039.Screenshot%20(15).png'} />
 		</Form>
 	);
 };

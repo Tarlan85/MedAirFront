@@ -57,7 +57,7 @@ const useHandleOnClickButton = ({ form }) => {
         let copydataForm = deepCopy(form.getFieldsValue());
         copydataForm.key = new Date().getTime();
         copydataForm.Id = new Date().getTime();
-        copydataForm.Moment = moment().format('YYYY-MM-DD HH:mm:ss')
+        copydataForm.date = moment().format('YYYY-MM-DD HH:mm:ss')
         setAnalisesDataTable([...analisesDataTable, copydataForm]);
         putListToGlobalContext([...analisesDataTable, copydataForm])
         resetForm();

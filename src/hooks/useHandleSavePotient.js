@@ -55,7 +55,6 @@ export function useHandleSavePotient() {
 		let res = await sendRequest("morby", obj, "post");
 		messageOnSave(res, "Morby");
 	};
-	//deseaseImagesList
 	const putVizit = async (obj) => {
 		let res = await sendRequest("visits", obj, "post");
 		messageOnSave(res, "Visits");
@@ -65,22 +64,6 @@ export function useHandleSavePotient() {
 		messageOnSave(res, "Treatment");
 	};
 	const putAnalyzis = async (obj) => {
-		console.log(obj);
-		obj.analyzesMediaList.forEach((i) => {
-			console.log("i.analyzesContent", i.analyzesContent);
-			if (i.analyzesContent?.fileList) {
-				// const file = i.analyzesContent.fileList[0];
-				// const blob = new Blob([file], { type: file.type });
-				// console.log("blob", blob);
-				// i.analyzesContent = blob;
-				const formData = new FormData();
-				formData.append("file", i.analyzesContent?.fileList[0]);
-				console.log("formData", formData);
-                
-				i.analyzesContent = formData
-			}
-		});
-		// .analyzesContent.file.originFileObj;
 		let res = await sendRequest("analyses", obj, "post");
 		messageOnSave(res, "Analyses");
 	};

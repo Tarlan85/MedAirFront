@@ -67,7 +67,7 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
             copydataForm.key = selectedRowId;
             copydataForm.Id = selectedRowId;
             let copyDataSource = deepCopy(analisesDataTable);
-            copydataForm.Moment = copyDataSource[findIndex].Moment
+            copydataForm.date = copyDataSource[findIndex].date
             copyDataSource[findIndex] = copydataForm;
             setAnalisesDataTable(copyDataSource);
             putListToGlobalContext(copyDataSource);

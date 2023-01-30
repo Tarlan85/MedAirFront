@@ -67,8 +67,6 @@ const ModalAnaliz = () => {
           ];
 
           
-        console.log('selectOption',selectOption)
-
     return (
         <Modal
             width={"60%"}
