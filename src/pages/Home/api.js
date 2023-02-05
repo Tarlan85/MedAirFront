@@ -1,5 +1,5 @@
 import { message } from "antd";
-import { fetchPatientid, putVizit, putAnket } from "../../api";
+import { fetchPatientid, putAnket, putVizitFromCalendar } from "../../api";
 import sendRequest from "../../api/sendRequest";
 
 const controlPatient = async (patientId) =>
@@ -52,7 +52,7 @@ export const handleAddVisit = async ({ sendObj }) => {
         phoneNumber,
     };
     if (patientId) {
-        putVizit(sendObjVisit);
+        putVizitFromCalendar(sendObjVisit);
         if (!sendObj.patientId) {
             putAnket(sendObjAnket);
         }

@@ -7,6 +7,9 @@ export const fetchPatientid = async () => {
 export const putVizit = (obj) => {
     sendRequest("visits", obj, "post");
 };
+export const putVizitFromCalendar = (obj) => {
+    sendRequest("visitsformcalendar", obj, "post");
+};
 export const putAnalyzis = (obj) => {
     sendRequest("analyses", obj, "post");
 };
