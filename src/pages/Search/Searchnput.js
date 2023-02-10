@@ -26,27 +26,27 @@ const Searchnput = ({ setdataSource }) => {
     return (
         <Row>
             <Form form={form} layout="inline">
-                <Col xs={24} md={12} xl={3}>
+                <Col sm={24} xs={24} md={12} xl={4}>
                     <Form.Item key='patientId' name="patientId" label="Patient №">
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
-                <Col xs={24} md={12} xl={6}>
+                <Col sm={24} xs={24} md={12} xl={6}>
                     <Form.Item key='patientName' name="patientName" label="Name">
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
-                <Col xs={24} md={12} xl={6}>
+                <Col sm={24} xs={24} md={12} xl={6}>
                     <Form.Item key='patientSurName' name="patientSurName" label="Surename">
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
-                <Col xs={24} md={12} xl={6}>
-                    <Form.Item key='phoneNumber' name="phoneNumber" label="Phone number">
+                <Col sm={24} xs={24} md={12} xl={6}>
+                    <Form.Item key='phoneNumber' name="phoneNumber" label="Phone n.">
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
-                <Col xs={24} md={12} xl={3}>
+                <Col sm={24} xs={24} md={12} xl={2}>
                     <button
                         disabled={isSpin}
                         onClick={onSearch}
