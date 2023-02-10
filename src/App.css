@@ -346,3 +346,6 @@
     width: 100%;
     display: flex;
 }
+.custom-row-hover:hover {
+    background-color: red !important;
+  }

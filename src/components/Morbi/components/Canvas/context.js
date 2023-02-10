@@ -9,8 +9,10 @@ export const CanvasProvider = ({ children }) => {
     const [imagesLength, setImagesLength] = useState()
     const [colorNumbersCanvas, setColorNumbersCanvas] = useState({})
     const [descriptionInputValue, setDescriptionInputValue] = useState()
+    const [brushRadius, setBrushRadius] = useState(20);
 
     const values = {
+        brushRadius, setBrushRadius,
         descriptionInputValue, setDescriptionInputValue,
         colorNumbersCanvas, setColorNumbersCanvas,
         imagesLength, setImagesLength,

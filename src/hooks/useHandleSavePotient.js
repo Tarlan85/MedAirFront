@@ -85,7 +85,6 @@ export function useHandleSavePotient() {
 
 		let id = formValues.Potient.patientId;
 		let patientId;
-		console.log("formValues", formValues);
 		if (id) {
 			patientId = id;
 		} else {

@@ -22,7 +22,7 @@ const useOnRowTable = () => {
 
   const getAncet = async (id) => {
     let res = await sendRequest("vite/" + id, {}, "get");
-    return res;
+    return res
   };
 
   const settingDataFamily = (res) => {
@@ -46,7 +46,6 @@ const useOnRowTable = () => {
             },
           });
           setDataFamily(arrFamily);
-          console.log(arrFamily)
         });
       } catch (e) {}
     }
@@ -116,20 +115,20 @@ const useOnRowTable = () => {
         getAnalyses(id),
       ]);
     } catch (err) {
-      console.log(err);
     }
   };
 
   const { clearDataProfileTables } = useClearDataProfileTables();
 
-  const onRowTable = (record) => {
+  const onRowTable = async (record) => {
     clearDataProfileTables();
     record.birthDate = moment(record.birthDate);
     try {
-      formValues.Anket = record;
-      formValues.Potient = record;
+      const res = await getAncet(record.patientId)
+      formValues.Anket = res.data;
+      formValues.Potient = res.data;
       setFormValues(formValues);
-      fetchData(record.patientId || record.patientID);
+      await fetchData(record.patientId);
       navigate("/profile");
     } catch (err) {
       console.log(err);

@@ -109,7 +109,7 @@ const Home = () => {
       render: (value, row, index) => {
         return (
           <div
-          className="xxxx"
+            className="xxxx"
             onClick={(e) => {
               e.stopPropagation();
               e.preventDefault();
@@ -137,20 +137,15 @@ const Home = () => {
       },
     },
   ];
+
   const dateCellRender = useMemo(
     (value) => {
       if (dataSource[0]) {
         return (value) => {
           const listData = getListData(value, dataSource);
-          return (
-            <ul className="events">
-              {listData.map((item) => (
-                <li key={item.id}>
-                  <Badge status={item.type} text={item.content} />
-                </li>
-              ))}
-            </ul>
-          );
+          if (listData[0]) {
+            return <div style={{ borderTop: "1px solid black" }}></div>;
+          }
         };
       }
     },
@@ -170,10 +165,10 @@ const Home = () => {
           onChange={onChange}
         />
       </Row>
-      <Row >
+      <Row>
         <Table
           bordered
-          className="Table"
+          className="Table table_calendar"
           pagination={false}
           columns={columns}
           dataSource={dataSource}

@@ -9,7 +9,7 @@ import useMouseMove from "../hooks/useMouseMove";
 const CanvasImages = (props) => {
     const { refConvas, imgSrc, imgName } = props;
 
-    const { disableCanvas, canvasColor, setDescriptionInputValue } =
+    const { disableCanvas, canvasColor, setDescriptionInputValue, brushRadius } =
         useCanvasContext();
 
     const { savedDrawingCanvas } = useGlobalContext();
@@ -37,7 +37,7 @@ const CanvasImages = (props) => {
                         canvasHeight={400}
                         ref={refConvas}
                         brushColor={canvasColor}
-                        brushRadius={20}
+                        brushRadius={brushRadius}
                         imgSrc={imgSrc}
                         saveData={
                             savedDrawingCanvas && savedDrawingCanvas[imgName]
