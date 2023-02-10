@@ -24,8 +24,7 @@ const Searchnput = ({ setdataSource }) => {
     };
 
     return (
-        <Row>
-            <Form form={form} layout="inline">
+        <Form form={form} layout="inline">
                 <Col sm={24} xs={24} md={12} xl={4}>
                     <Form.Item key='patientId' name="patientId" label="Patient №">
                         <Input placeholder="Axtar..." />
@@ -42,7 +41,7 @@ const Searchnput = ({ setdataSource }) => {
                     </Form.Item>
                 </Col>
                 <Col sm={24} xs={24} md={12} xl={6}>
-                    <Form.Item key='phoneNumber' name="phoneNumber" label="Phone n.">
+                    <Form.Item key='phoneNumber' name="phoneNumber" label="Phone number">
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
@@ -56,7 +55,6 @@ const Searchnput = ({ setdataSource }) => {
                     </button>
                 </Col>
             </Form>
-        </Row>
     );
 };
 
