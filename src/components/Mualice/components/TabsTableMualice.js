@@ -35,13 +35,14 @@ function TabsTableMualice() {
                 title: "Name",
                 dataIndex: "cureTabName",
                 key: "cureTabName",
+                inputType:'select',
                 editable: true,
                 width: "200px",
             },
             {
                 title: "Type",
                 dataIndex: "cureTabType",
-                key: "cureTabType",
+                inputType:'select',
                 editable: true,
                 width: "200px",
                 render: (value, row, index) => {

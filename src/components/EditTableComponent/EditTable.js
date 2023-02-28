@@ -23,6 +23,7 @@ const EditableCell = ({
     record,
     handleSave,
     setShowSaveButton,
+    inputType,
     ...restProps
 }) => {
     const form = useContext(EditableContext);
@@ -35,6 +36,7 @@ const EditableCell = ({
         record,
         handleSave,
         setShowSaveButton,
+        inputType,
         form,
     });
 
@@ -76,6 +78,7 @@ const EditTable = (props) => {
                 editable: col.editable,
                 dataIndex: col.dataIndex,
                 title: col.title,
+                inputType: col.inputType,
                 handleSave,
                 setShowSaveButton,
             }),

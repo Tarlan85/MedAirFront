@@ -4,6 +4,7 @@ import DeleteTableRow from "../../components/DeleteTableRow";
 import ManagersButtons from "../../components/ManagersButtons";
 import { useGlobalContext } from "../../context/context";
 import EditTableComponent from "../../components/EditTableComponent";
+import { message } from "antd";
 
 function ManagersTabsTableComponent(props) {
     const [count, setCount] = useState(0);
@@ -28,6 +29,12 @@ function ManagersTabsTableComponent(props) {
     const del = async (delItem) => {
         let Id = delItem.cureTabId;
         let res = await sendRequest("managers/tabs/" + Id, {}, "delete");
+        if(res?.data === 'success'){
+            message.success('deleted')
+            let res = await sendRequest("managers/tabs");
+            res.data.forEach(i => i.Id = i.cureTabId )
+            setManagersList(res.data);
+        }
     };
     const columns = useMemo(() => {
         return [
@@ -41,6 +48,7 @@ function ManagersTabsTableComponent(props) {
             {
                 title: "Type",
                 dataIndex: "cureTabType",
+                inputType:'select',
                 key: "cureTabType",
                 editable: true,
                 width: "200px",

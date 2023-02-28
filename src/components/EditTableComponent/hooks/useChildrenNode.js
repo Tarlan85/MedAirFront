@@ -1,9 +1,6 @@
-import { Form, Input } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "../../../context/context";
 import EditInputType from "../components/EditInputType";
-import InputComponent from "../components/InputComponent";
-import UseTabs from "../components/UseTabs";
 
 const useChildrenNode = ({
     title,
@@ -14,6 +11,7 @@ const useChildrenNode = ({
     handleSave,
     setShowSaveButton,
     form,
+    inputType,
 }) => {
     const [editing, setEditing] = useState(false);
     const { managersList, isChangeTable, setIsChangeTable, isAddNewRow } =
@@ -47,15 +45,15 @@ const useChildrenNode = ({
         });
     };
 
-    const save = async () => {
+    const save = async (inputType) => {
         try {
             const values = await form.validateFields();
-            if (Object.keys(values).includes("useTabs")) {
+            if (Object.keys(values).includes("useTabs") && inputType === 'select') {
                 const manager = JSON.parse(values.useTabs);
                 values.useTabs = manager.cureTabName;
                 values.cureTabType = manager.cureTabType;
             }
-            if (Object.keys(values).includes("cureTabName")) {
+            if (Object.keys(values).includes("cureTabName")  && inputType === 'select') {
                 const manager = JSON.parse(values.cureTabName);
                 values.cureTabName = manager.cureTabName;
                 values.cureTabType = manager.cureTabType;
@@ -77,6 +75,7 @@ const useChildrenNode = ({
                 title={title}
                 inputRef={inputRef}
                 save={save}
+                inputType={inputType}
             />
         ) : (
             <div

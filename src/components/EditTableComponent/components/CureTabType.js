@@ -4,6 +4,12 @@ import React from 'react';
 const { Option } = Select;
 
 const CureTabType = ({dataIndex,title,inputRef, save}) => {
+
+    const onBlur = () => {
+        let inputType = 'select'
+        save(inputType)
+    }
+
     return (
         <Form.Item
             style={{
@@ -23,7 +29,7 @@ const CureTabType = ({dataIndex,title,inputRef, save}) => {
                 notFoundContent={<Spin size="small" />}
                 lazyLoad
                 className="customSelect detail-select stepSelectCustomer"
-                onBlur={save}
+                onBlur={onBlur}
             >
                             <Option value="Tabletka">Tablet</Option>
                             <Option value="Ampula">Ampoule</Option>

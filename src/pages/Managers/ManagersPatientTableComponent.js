@@ -1,3 +1,4 @@
+import { message } from "antd";
 import React, { useMemo, useState } from "react";
 import sendRequest from "../../api/sendRequest";
 import DeleteTableRow from "../../components/DeleteTableRow";
@@ -29,7 +30,12 @@ function ManagersPatientTableComponent(props) {
     const del = async (delItem) => {
         let Id = delItem.visitPlaceId;
         let res = await sendRequest("managers/places/" + Id, {}, "delete");
-        return res
+        if(res?.data === 'success'){
+            message.success('deleted')
+            let res = await sendRequest("managers/places");
+            res.data.forEach(i => i.Id = i.visitPlaceId )
+            setManagersPlaces(res.data);
+        }
     };
     const columns = useMemo(() => {
         return [
