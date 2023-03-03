@@ -24,22 +24,40 @@ function ManagersTabsTableComponent(props) {
         for (let i = 0; i < managersList.length; i++) {
             let sendObj = { ...managersList[i] };
             let res = await sendRequest("managers/tabs", sendObj, "post");
+            if(res){
+                message.success({
+                    content: 'Saved',
+                    key: 'save_manager'
+                })
+            }else {
+                message.error('Error')
+            }
         }
     };
+    const deleteItem = (delItem) => {
+        let newList =  managersList.filter(i => i.Id !== delItem.Id)
+        setManagersList(newList)
+        message.success('Deleted')
+    }
     const del = async (delItem) => {
         let Id = delItem.cureTabId;
+        if(!Id){
+            return deleteItem(delItem)
+        }
         let res = await sendRequest("managers/tabs/" + Id, {}, "delete");
         if(res?.data === 'success'){
-            message.success('deleted')
+            message.success('Deleted')
             let res = await sendRequest("managers/tabs");
             res.data.forEach(i => i.Id = i.cureTabId )
             setManagersList(res.data);
+        }else {
+            message.warning("Don't deleted.")
         }
     };
     const columns = useMemo(() => {
         return [
             {
-                title: "Ad",
+                title: "Name",
                 dataIndex: "cureTabName",
                 key: "cureTabName",
                 editable: true,

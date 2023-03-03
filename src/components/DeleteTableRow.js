@@ -18,16 +18,8 @@ function DeleteTableRow({ dataSource, setDataSource, row, delFunct, setTablesDat
         }
     };
     const deleteFunct = async ({ delEl, newData }) => {
-        message.loading({ content: "Yüklənir...", key: "delete" });
+        message.loading({ content: "Loading...", key: "delete" });
         let res = await delFunct(delEl);
-        if (res) {
-            message.success({
-                content: "Silindi.",
-                key: "delete",
-                duration: 2,
-            });
-            setDataSource(newData);
-        }
     };
     const setOwnPropertyId = () => {
         if (row.Id) {

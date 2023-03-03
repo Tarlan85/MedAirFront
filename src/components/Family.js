@@ -1,4 +1,4 @@
-import { Form, Input, List, Select } from "antd";
+import { Button, Form, Input, List, Select, Space } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../context/context";
@@ -90,51 +90,56 @@ const Family = () => {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <Form
-          className="collapsForm"
-          labelAlign="right"
-          labelCol={{
-            span: 7,
-          }}
-          wrapperCol={{
-            span: 13,
-          }}
-          style={{ width: "400px" }}
-        >
-          <Form.Item label="Family members ">
-            <Select
-              allowClear
-              onSelect={onSelect}
-              defaultValue=""
-              style={{ width: "100%" }}
-            >
-              <Option value="Mother">Mother</Option>
-              <Option value="Father">Father</Option>
-              <Option value="Maternal-grandmother">Maternal grandmother</Option>
-              <Option value="Ata-Ana">Paternal grandmother</Option>
-              <Option value="Ata-Ata">Paternal grandfather</Option>
-              <Option value="Ana-Ata">Maternal grandfather</Option>
-              <Option value="Brother">Brother</Option>
-              <Option value="Sister">Sister</Option>
-              <Option value="Father's-brother">Father's brother</Option>
-              <Option value="Mother's-brother">Mother's brother</Option>
-              <Option value="Father's-sister">Father's sister</Option>
-              <Option value="Mother's-sister">Mother's sister</Option>
-            </Select>
-          </Form.Item>
-        </Form>
-        <button className="new_button" onClick={onClickAddFamilyMember}>
-          Add
-        </button>
-      </div>
+      <Form
+        className="collapsForm"
+        labelAlign="right"
+        labelCol={{
+          span: 5,
+        }}
+        wrapperCol={{
+          span: 13,
+        }}
+        // style={{ width: "400px" }}
+      >
+        <Form.Item label="Family members ">
+          <Space style={{ display: "flex", alignItems: "center" }}>
+            <Form.Item>
+              <Select
+                allowClear
+                onSelect={onSelect}
+                defaultValue=""
+                style={{ width: "200px" }}
+              >
+                <Option value="Mother">Mother</Option>
+                <Option value="Father">Father</Option>
+                <Option value="Maternal-grandmother">
+                  Maternal grandmother
+                </Option>
+                <Option value="Ata-Ana">Paternal grandmother</Option>
+                <Option value="Ata-Ata">Paternal grandfather</Option>
+                <Option value="Ana-Ata">Maternal grandfather</Option>
+                <Option value="Brother">Brother</Option>
+                <Option value="Sister">Sister</Option>
+                <Option value="Father's-brother">Father's brother</Option>
+                <Option value="Mother's-brother">Mother's brother</Option>
+                <Option value="Father's-sister">Father's sister</Option>
+                <Option value="Mother's-sister">Mother's sister</Option>
+              </Select>
+            </Form.Item>
+
+            <button style={{marginBottom: "22px"}} className="new_button" onClick={onClickAddFamilyMember}>
+              Add
+            </button>
+          </Space>
+        </Form.Item>
+      </Form>
 
       <div className="family-list">
         <Form
           className="collapsForm"
           labelAlign="right"
           labelCol={{
-            span: 7,
+            span: 5,
           }}
           wrapperCol={{
             span: 13,
@@ -144,7 +149,16 @@ const Family = () => {
           {dataList.map((item) => (
             <Form.Item key={item.id}>
               <Input
-              style={activList === item.id ? {backgroundColor: '#F0F8FF', textDecoration:'underline', fontSize:'20px'} : {}}
+                style={
+                  activList === item.id
+                    ? {
+                        backgroundColor: "#F0F8FF",
+                        textDecoration: "underline",
+                        fontSize: "20px",
+                        width: "200px",
+                      }
+                    : { width: "200px" }
+                }
                 suffix={
                   <DeleteOutlined
                     style={{ color: "red" }}
@@ -239,16 +253,22 @@ const ModalFamily = (props) => {
 
   return (
     <Form
-      className="collapsForm"
       labelAlign="right"
       labelCol={{
-        span: 7,
+        span: 9,
       }}
       wrapperCol={{
-        span: 13,
+        span: 15,
       }}
       form={form}
-      style={{ width: "400px" }}
+      style={{
+        background: "#E0E0E0",
+        border: "1px solid #C8C8C8",
+        boxShadow: "10px 5px 5px #C0C0C0",
+        padding: "10px",
+        maxWidth: '400px'
+      }}
+      
     >
       <Form.Item label="Trauma" name="trauma">
         <Input

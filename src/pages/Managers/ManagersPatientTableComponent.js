@@ -25,10 +25,26 @@ function ManagersPatientTableComponent(props) {
         for (let i = 0; i < managersPlaces.length; i++) {
             let sendObj = { ...managersPlaces[i] };
             let res = await sendRequest("managers/places", sendObj, "post");
+            if(res){
+                message.success({
+                    content: 'Saved',
+                    key: 'save_manager'
+                })
+            }else {
+                message.error('Error')
+            }
         }
     };
+    const deleteItem = (delItem) => {
+        let newList =  managersPlaces.filter(i => i.Id !== delItem.Id)
+        setManagersPlaces(newList)
+        message.success('Deleted')
+    }
     const del = async (delItem) => {
         let Id = delItem.visitPlaceId;
+        if(!Id){
+            return deleteItem(delItem)
+        }
         let res = await sendRequest("managers/places/" + Id, {}, "delete");
         if(res?.data === 'success'){
             message.success('deleted')
@@ -40,7 +56,7 @@ function ManagersPatientTableComponent(props) {
     const columns = useMemo(() => {
         return [
             {
-                title: "Ad",
+                title: "Name",
                 dataIndex: "placeName",
                 key: "placeName",
                 editable: true,

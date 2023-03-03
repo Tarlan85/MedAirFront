@@ -11,7 +11,7 @@ const InputComponent = ({dataIndex, title, inputRef, save}) => {
             rules={[
                 {
                     required: true,
-                    message: `Zəhmət olmasa ${title.toLowerCase()} təyin edin..`,
+                    message: `Please enter the valid ${title.toLowerCase()}...`,
                 },
             ]}
         >

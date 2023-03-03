@@ -52,9 +52,9 @@ export const handleAddVisit = async ({ sendObj }) => {
         phoneNumber,
     };
     if (patientId) {
-        putVizitFromCalendar(sendObjVisit);
         if (!sendObj.patientId) {
-            putAnket(sendObjAnket);
+            await putAnket(sendObjAnket);
         }
+        putVizitFromCalendar(sendObjVisit);
     }
 };

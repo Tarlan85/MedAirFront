@@ -16,7 +16,7 @@ const HeaderMorby = () => {
   const onFieldsChange = ([{ name, value }]) => {
     formValues.Morbi = { ...formValues.Morbi, [name]: value };
     setFormValues(formValues);
-  }
+  };
 
   useLayoutEffect(() => {
     if (formValues.Morbi.ownInjuryReason) {
@@ -29,11 +29,10 @@ const HeaderMorby = () => {
       <Row>
         <Col xs={24} xl={12}>
           <Form
-            initialValues={
-                { ...formValues.Morbi,
-                    Received_traumas: formValues.Morbi.ownInjuryReason ? 1 : null,
-                }
-            }
+            initialValues={{
+              ...formValues.Morbi,
+              Received_traumas: formValues.Morbi.ownInjuryReason ? 1 : null,
+            }}
             onFieldsChange={onFieldsChange}
             className="collapsForm"
             labelAlign="right"
@@ -87,22 +86,10 @@ const HeaderMorby = () => {
               </Select>
             </Form.Item>
           </Form>
+          {/* <Family /> */}
         </Col>
         <Col xs={24} xl={12}>
-          <Form
-            initialValues={formValues.Morbi}
-            onFieldsChange={onFieldsChange}
-            className="collapsForm"
-            labelAlign="right"
-            labelCol={{
-              span: 5,
-            }}
-            wrapperCol={{
-              span: 13,
-            }}
-          >
-            <Family />
-          </Form>
+          <Family />
         </Col>
       </Row>
       <hr style={{ margin: "20px" }} />
