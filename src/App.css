@@ -18,6 +18,22 @@
 .new_button:hover {
     background: rgb(234, 237, 240);
 }
+.new_button_clear {
+    margin-left: 5px !important;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    cursor: pointer;
+    border: 1px solid rgb(24, 23, 23);
+    border-radius: 3px;
+    background: -webkit-linear-gradient(top, #c45050, #e6e6e6);
+    align-items: center;
+    /* color: #000 !important; */
+    height: 32px;
+    margin-right: 0.5rem;
+}
+.new_button_clear:hover {
+    background: rgb(221, 7, 7);
+}
 /* .list {
 	background-color:white;
 } */
@@ -85,7 +101,7 @@
 
 .affixProfile div {
     display: flex;
-    background-color: #87CEFA;
+    background-color: #FF69B4;
     /* background-color: rgba(228, 228, 228, 0.863) !important; */
 }
 .affixProfile {
@@ -349,3 +365,30 @@
 .custom-row-hover:hover {
     background-color: red !important;
   }
+.ant-menu-item-selected {
+    background-color: #FF69B4 !important;
+}
+.table_row_pink_color {
+    background-color: #FF69B4 !important;
+}
+
+
+.table_calendar .ant-table-thead > tr > th,
+.table_calendar .ant-table-tbody > tr > td {
+    padding: 1.5px 4px !important;
+    font-size: 1.1em;
+    text-align: center !important;
+}
+.table_calendar th {
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+.table_calendar .ant-table-content .ant-table-cell {
+    border-right: 0.5px solid #000 !important;
+    border-left: 0.5px solid #000 !important;
+    border-bottom: 0.5px solid #000 !important;
+}
+.table_calendar .ant-table-content thead .ant-table-cell {
+    border-top: 0.5px solid #000 !important;
+    border-left: 0.5px solid #000 !important;
+}

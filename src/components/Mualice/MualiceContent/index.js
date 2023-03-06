@@ -1,5 +1,6 @@
 import { Col, Form, Row } from "antd";
 import React, { memo } from "react";
+import useResetForm from "../../../hooks/useResetForm";
 import Buttons from "../components/Buttons";
 import useAddAndResetForm from "../hooks/useAddAndResetForm";
 import LeftForm from "./LeftForm";
@@ -9,6 +10,8 @@ const MualiceContent = () => {
     const [form] = Form.useForm();
 
     useAddAndResetForm({ form });
+
+    useResetForm({ form });
 
     return (
         <>

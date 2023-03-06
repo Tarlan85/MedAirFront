@@ -85,6 +85,12 @@ const Home = () => {
     {
       title: "Age",
       dataIndex: "birthDate",
+      render: (value) => {
+        if (!value) return '';
+        else {
+          return moment().diff(value, "years");
+        }
+      },
     },
     {
       title: "Mobile number",
@@ -153,6 +159,12 @@ const Home = () => {
   );
   const { onRowTable } = useOnRowTable();
 
+ const getRowClassName = (record) => {
+  console.log('record',record.visitReason)
+  //operation
+  if(record.visitReason === 'operation') return 'table_row_pink_color'
+ }
+
   return (
     <>
       <HeaderHomePage />
@@ -167,11 +179,12 @@ const Home = () => {
       </Row>
       <Row>
         <Table
-          bordered
+          bordered={true}
           className="Table table_calendar"
           pagination={false}
           columns={columns}
           dataSource={dataSource}
+          rowClassName={getRowClassName}
           onRow={(record, index) => ({
             onClick: (e) => onRowTable(record, index),
           })}

@@ -1,5 +1,5 @@
 import { Popconfirm, Row, Select } from "antd";
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { RetweetOutlined } from "@ant-design/icons";
 import { useCanvasContext } from "../context";
 import { useGlobalContext } from "../../../../../context/context";
@@ -14,7 +14,7 @@ const CanvasHeader = (props) => {
     imagesLength,
     setBrushRadius,
   } = useCanvasContext();
-  const { savedDrawingCanvas, setSavedDrawingCanvas } = useGlobalContext();
+  const { savedDrawingCanvas, setSavedDrawingCanvas, isClearForm } = useGlobalContext();
 
   const [disableAddBtn, setdisableAddBtn] = useState(false);
   const [disableSaveBtn, setdisableSaveBtn] = useState(true);
@@ -37,6 +37,13 @@ const CanvasHeader = (props) => {
   const handleClear = () => {
     refConvas.current.undo();
   };
+
+  useEffect(() => {
+    if (isClearForm) {
+      refConvas.current.clear();
+    }
+  }, [isClearForm]);
+  
   const onSelect = (e) => {
     setCanvasColor(e);
   };
@@ -81,7 +88,7 @@ const CanvasHeader = (props) => {
         <Select.Option value="#AA00FF">Operated not by me</Select.Option>
       </Select>
 
-      {imagesLength !== 1 && disableSaveBtn ? (
+      {imagesLength === 1 ? '' : disableSaveBtn ? (
         <button onClick={changeConvasImg} className="new_button">
           <RetweetOutlined />
         </button>

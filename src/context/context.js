@@ -30,8 +30,10 @@ export const AppProvider = ({ children }) => {
     const [savedDrawingCanvas, setSavedDrawingCanvas] = useState({})
     const [descriptionsCanvas, setDescriptionsCanvas] = useState({})
     const [deseaseHistoryDynamicsList, setDeseaseHistoryDynamicsList] = useState([])
+    const [isClearForm, setIsClearForm] = useState(false)
 
     const values = {
+        isClearForm, setIsClearForm,
         token, setToken,
         deseaseHistoryDynamicsList, setDeseaseHistoryDynamicsList,
         descriptionsCanvas, setDescriptionsCanvas,

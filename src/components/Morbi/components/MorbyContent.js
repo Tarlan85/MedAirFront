@@ -1,6 +1,7 @@
 import { Col, Form, Input, InputNumber, Radio, Row, Select, Space } from "antd";
 import React from "react";
 import { styleInput } from "../../../date/styleInput";
+import useResetForm from "../../../hooks/useResetForm";
 import useLabel from "../../EditTableComponent/hooks/useLabel";
 import { useMorbyContext } from "../context";
 import useAddAndResetForm from "../hooks/useAddAndResetForm";
@@ -16,6 +17,8 @@ const MorbyContent = () => {
     useAddAndResetForm({ form });
 
     const label = useLabel({ activeRow });
+
+    useResetForm({ form });
 
     return (
         <Row>

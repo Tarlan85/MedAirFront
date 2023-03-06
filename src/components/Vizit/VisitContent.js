@@ -9,6 +9,7 @@ import useLabel from "../EditTableComponent/hooks/useLabel";
 import { useVisitContext } from "./context";
 import useAddAndResetForm from "./hooks/useAddAndResetForm";
 import { useGlobalContext } from "../../context/context";
+import useResetForm from "../../hooks/useResetForm";
 
 const { Option } = Select;
 
@@ -25,6 +26,8 @@ const VisitContent = () => {
     }
 
     const label = useLabel({ activeRow });
+
+    useResetForm({ form });
 
     return (
         <>

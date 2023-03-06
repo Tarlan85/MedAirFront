@@ -5,10 +5,12 @@ import { useGlobalContext } from "../../../context/context";
 import Family from "../../Family";
 import { styleInput } from "../../../date/styleInput";
 import { useLayoutEffect } from "react";
+import useResetForm from "../../../hooks/useResetForm";
 
 const { Option } = Select;
 
 const HeaderMorby = () => {
+  const [form] = Form.useForm();
   const { formValues, setFormValues } = useGlobalContext();
 
   const [ownInjuryReason, setownInjuryReason] = useState();
@@ -24,11 +26,14 @@ const HeaderMorby = () => {
     }
   }, [formValues.Morbi]);
 
+  useResetForm({form})
+
   return (
     <>
       <Row>
         <Col xs={24} xl={12}>
           <Form
+            form={form}
             initialValues={{
               ...formValues.Morbi,
               Received_traumas: formValues.Morbi.ownInjuryReason ? 1 : null,
@@ -86,13 +91,11 @@ const HeaderMorby = () => {
               </Select>
             </Form.Item>
           </Form>
-          {/* <Family /> */}
         </Col>
         <Col xs={24} xl={12}>
           <Family />
         </Col>
       </Row>
-      <hr style={{ margin: "20px" }} />
     </>
   );
 };

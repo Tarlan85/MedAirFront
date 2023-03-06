@@ -7,7 +7,7 @@ import { useCanvasContext } from "../context";
 import useMouseMove from "../hooks/useMouseMove";
 
 const CanvasImages = (props) => {
-    const { refConvas, imgSrc, imgName } = props;
+    const { refConvas, imgSrc, imgName, canvasWidth=400, canvasHeight=400 } = props;
 
     const { disableCanvas, canvasColor, setDescriptionInputValue, brushRadius } =
         useCanvasContext();
@@ -24,7 +24,6 @@ const CanvasImages = (props) => {
         <ErrorBoundary>
             <Row>
                 <div
-                    style={{ width: "400px", height: "400px" }}
                     className="CanvasDraw"
                     onMouseMove={handleMouseMove}
                     onClick={onClick}
@@ -33,8 +32,8 @@ const CanvasImages = (props) => {
                         style={{ border: "1px solid rgb(24, 23, 23)" }}
                         onChange={(e) => onChangeCanvas(e)}
                         disabled={disableCanvas}
-                        canvasWidth={400}
-                        canvasHeight={400}
+                        canvasWidth={canvasWidth}
+                        canvasHeight={canvasHeight}
                         ref={refConvas}
                         brushColor={canvasColor}
                         brushRadius={brushRadius}

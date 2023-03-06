@@ -3,10 +3,12 @@ import TextArea from "antd/lib/input/TextArea";
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../context/context";
 import { DeleteOutlined } from "@ant-design/icons";
+import useResetForm from "../hooks/useResetForm";
 
 const { Option } = Select;
 
 const Family = () => {
+  const [form] = Form.useForm();
   const [onMemberClicked, setOnMemberClicked] = useState();
   const [dataList, setDataList] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -15,6 +17,14 @@ const Family = () => {
   const [countAddedFM, setCountAddedFM] = useState({});
 
   const { dataFamily } = useGlobalContext();
+
+  const { isClearForm } = useGlobalContext();
+
+  useEffect(() => {
+    if (isClearForm) {
+      setDataList([]);
+    }
+  }, [isClearForm]);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -33,7 +43,6 @@ const Family = () => {
           count += 1;
         });
         setDataList(list);
-        console.log("list", list);
       } catch (e) {}
     }
   }, []);
@@ -87,10 +96,13 @@ const Family = () => {
   const onSelect = (e) => {
     setselectedItem(e);
   };
+  
+  useResetForm({form})
 
   return (
     <>
       <Form
+            form={form}
         className="collapsForm"
         labelAlign="right"
         labelCol={{
@@ -99,7 +111,6 @@ const Family = () => {
         wrapperCol={{
           span: 13,
         }}
-        // style={{ width: "400px" }}
       >
         <Form.Item label="Family members ">
           <Space style={{ display: "flex", alignItems: "center" }}>
@@ -136,6 +147,7 @@ const Family = () => {
 
       <div className="family-list">
         <Form
+            form={form}
           className="collapsForm"
           labelAlign="right"
           labelCol={{
