@@ -61,6 +61,9 @@ const HeaderMualice = () => {
             <Form.Item label="Recommendation" name="recommendation">
               <TextArea style={styleInput} />
             </Form.Item>
+            <Form.Item label="Advise" name="advise">
+              <TextArea style={styleInput} />
+            </Form.Item>
           </Form>
         </Col>
       </Row>

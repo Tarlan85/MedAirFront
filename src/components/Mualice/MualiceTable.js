@@ -42,6 +42,55 @@ const MualiceTable = () => {
                 key: "treatmentTypeDesc",
             },
             {
+                title: "ER",
+                dataIndex: "ihkEr",
+                key: "ihkEr",
+                render: (value) => {
+                    if (value === 1) {
+                        return "Pozitiv";
+                    } else if (value === 2) {
+                        return "Negativ";
+                    }
+                },
+            },
+            {
+                title: "ER N",
+                dataIndex: "erN",
+                key: "erN",
+            },
+            {
+                title: "PR",
+                dataIndex: "ihkPr",
+                key: "ihkPr",
+                render: (value) => {
+                    if (value === 1) {
+                        return "Pozitiv";
+                    } else if (value === 2) {
+                        return "Negativ";
+                    }
+                },
+            },
+            {
+                title: "PR N",
+                dataIndex: "prN",
+                key: "prN",
+            },
+            {
+                title: "HER2",
+                dataIndex: "her2",
+                key: "her2",
+            },
+            {
+                title: "HER2 FT",
+                dataIndex: "her2FT",
+                key: "her2FT",
+            },
+            {
+                title: "K67",
+                dataIndex: "k67",
+                key: "k67",
+            },
+            {
                 title: "",
                 dataIndex: "delete",
                 key: "delete",

@@ -12,8 +12,14 @@ export const MualiceProvider = ({ children }) => {
     const [activeRow, setActiveRow] = useState();
     const [SLNB, setSLNB] = useState();
     const [axilla, setAxilla] = useState();
+    const [ihkEr, setihkEr] = useState();
+    const [ihkPr, setihkPr] = useState();
+    const [ihkHer2, setihkHer2] = useState();
 
     const values = {
+        ihkEr, setihkEr,
+        ihkPr, setihkPr,
+        ihkHer2, setihkHer2,
         activeRow, setActiveRow,
         selectedRowTable, setSelectedRowTable,
         isAdd, setIsAdd,

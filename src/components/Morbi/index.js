@@ -8,17 +8,17 @@ import Buttons from "./components/Buttons";
 import Divider from "../Divider";
 
 const index = () => {
-    return (
-        <MorbyProvider>
-        <MorbyContent />
-        <Buttons />
-        <MorbyTable />
-        <Divider />
-            <HeaderMorby />
-        <Divider />
-            <Canvases />
-        </MorbyProvider>
-    );
+  return (
+    <MorbyProvider>
+      <MorbyContent />
+      <Buttons />
+      <MorbyTable />
+      <Divider />
+      <HeaderMorby />
+      <Divider />
+      <Canvases />
+    </MorbyProvider>
+  );
 };
 
 export default index;
