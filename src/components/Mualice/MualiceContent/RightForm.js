@@ -4,6 +4,7 @@ import { styleInput } from "../../../date/styleInput";
 import Benigen from "../components/Benigen";
 import { useMualiceContext } from "../context";
 import useLabel from "../../EditTableComponent/hooks/useLabel";
+import { useGlobalContext } from "../../../context/context";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -22,6 +23,7 @@ const RightForm = ({ form }) => {
   } = useMualiceContext();
 
   const label = useLabel({ activeRow });
+  const { pathologistsList } = useGlobalContext();
 
   const onChangeTreatmentTypeName = (e) => {
     settreatmentsType(e);
@@ -85,6 +87,18 @@ const RightForm = ({ form }) => {
       )}
       <Form.Item label={label("K67")} name="k67">
         <InputNumber style={styleInput} min={0} defaultValue={0} />
+      </Form.Item>
+
+      <Form.Item label="Pathologist" name="pathologist">
+            <Select style={styleInput} allowClear>
+              {pathologistsList.map((i) => {
+                return (
+                  <Select.Option value={i.pathologistName}>
+                    {i.pathologistName}
+                  </Select.Option>
+                );
+              })}
+            </Select>
       </Form.Item>
 
       <Form.Item label={label("Brest type")} name="breastType">

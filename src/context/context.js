@@ -31,8 +31,10 @@ export const AppProvider = ({ children }) => {
     const [descriptionsCanvas, setDescriptionsCanvas] = useState({})
     const [deseaseHistoryDynamicsList, setDeseaseHistoryDynamicsList] = useState([])
     const [isClearForm, setIsClearForm] = useState(false)
+    const [pathologistsList, setPathologistsList] = useState([]);
 
     const values = {
+        pathologistsList, setPathologistsList,
         isClearForm, setIsClearForm,
         token, setToken,
         deseaseHistoryDynamicsList, setDeseaseHistoryDynamicsList,

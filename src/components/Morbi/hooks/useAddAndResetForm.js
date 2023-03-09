@@ -39,6 +39,7 @@ const useAddAndResetForm = ({ form }) => {
                 let copydataForm = deepCopy(form.getFieldsValue());
                 copydataForm.key = new Date().getTime();
                 copydataForm.Id = new Date().getTime();
+                console.log('copydataForm',copydataForm)
                 setDeseaseHistoryDynamicsList([
                     ...deseaseHistoryDynamicsList,
                     copydataForm,

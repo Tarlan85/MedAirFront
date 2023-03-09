@@ -12,7 +12,9 @@ ReactDOM.render(
         <ErrorBoundary>
             <BrowserRouter>
                 <AppProvider>
+                {/* <ChakraProvider> */}
                     <App />
+                    {/* </ChakraProvider> */}
                 </AppProvider>
             </BrowserRouter>
         </ErrorBoundary>

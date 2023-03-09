@@ -4,7 +4,7 @@ import { useGlobalContext } from '../context/context';
 
 function useFetchDatas() {
 
-    const { setManagersList, setManagersPlaces } = useGlobalContext();
+    const { setManagersList, setManagersPlaces, setPathologistsList } = useGlobalContext();
 
     const fetchManagersTabs = async () => {
       let res = await sendRequest("managers/tabs");
@@ -16,10 +16,16 @@ function useFetchDatas() {
       res.data.forEach(i => i.Id = i.visitPlaceId )
       setManagersPlaces(res.data);
     };
+    const fetchPathologistsPlace = async () => {
+      let res = await sendRequest("managers/pathologists");
+      res.data.forEach(i => i.Id = i.pathologistId )
+      setPathologistsList(res.data);
+    };
     
     useEffect(() => {
       fetchManagersTabs();
       fetchManagersPlace()
+      fetchPathologistsPlace()
     }, []);
   return {}
 }

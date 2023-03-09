@@ -86,7 +86,7 @@ const Home = () => {
       title: "Age",
       dataIndex: "birthDate",
       render: (value) => {
-        if (!value) return '';
+        if (!value) return "";
         else {
           return moment().diff(value, "years");
         }
@@ -121,7 +121,11 @@ const Home = () => {
               e.preventDefault();
             }}
           >
-            <SelectStatus value={value} row={row} updatePage={updatePage} />
+            <SelectStatus
+              value={value}
+              row={row}
+              updatePage={() => updatePage(row)}
+            />
           </div>
         );
       },
@@ -159,11 +163,9 @@ const Home = () => {
   );
   const { onRowTable } = useOnRowTable();
 
- const getRowClassName = (record) => {
-  console.log('record',record.visitReason)
-  //operation
-  if(record.visitReason === 'operation') return 'table_row_pink_color'
- }
+  const getRowClassName = (record) => {
+    if (record.visitReason === "operation") return "table_row_pink_color";
+  };
 
   return (
     <>
