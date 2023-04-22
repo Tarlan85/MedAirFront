@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { AppProvider } from "./context/context";
 import ErrorBoundary from "./ErrorBoundary";
+import 'antd/dist/antd.min.css';
 
 ReactDOM.render(
     <React.StrictMode>
