@@ -1,6 +1,6 @@
 import "./App.css";
 import "antd/dist/antd.min.css";
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import { Layout } from "antd";
 import RoutComponent from "./components/RoutComponent";
 import { useGlobalContext } from "./context/context";
