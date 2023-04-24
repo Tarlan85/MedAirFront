@@ -1,4 +1,3 @@
-/* @import '~antd/dist/antd.css'; */
 @import '~antd/dist/antd.min.css';
 :root {
     --edit-bg-color: blanchedalmond;
@@ -65,7 +64,7 @@
     width: 90%;
     margin-left: 5%;
     margin-top: 10px;
-    margin-bottom: 2%;
+    /* margin-bottom: 2%; */
 
     /* border: 1px solid #141414; */
 }
@@ -372,25 +371,4 @@
 }
 .table_row_pink_color {
     background-color: #FF69B4 !important;
-}
-
-
-.table_calendar .ant-table-thead > tr > th,
-.table_calendar .ant-table-tbody > tr > td {
-    padding: 1.5px 4px !important;
-    font-size: 1.1em;
-    text-align: center !important;
-}
-.table_calendar th {
-    font-weight: 600 !important;
-    text-align: center !important;
-}
-.table_calendar .ant-table-content .ant-table-cell {
-    border-right: 0.5px solid #000 !important;
-    border-left: 0.5px solid #000 !important;
-    border-bottom: 0.5px solid #000 !important;
-}
-.table_calendar .ant-table-content thead .ant-table-cell {
-    border-top: 0.5px solid #000 !important;
-    border-left: 0.5px solid #000 !important;
 }

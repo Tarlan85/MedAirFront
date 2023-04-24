@@ -65,10 +65,12 @@ const Home = () => {
     {
       title: "Patient Number",
       dataIndex: "patientId",
+      ellipsis: true,
     },
     {
       title: "Time",
       dataIndex: "visitDate",
+      width: 150
     },
     {
       title: "Name",
@@ -81,6 +83,7 @@ const Home = () => {
     {
       title: "Patronymic",
       dataIndex: "patientPatronymic",
+      ellipsis: true,
     },
     {
       title: "Age",
@@ -94,6 +97,8 @@ const Home = () => {
     },
     {
       title: "Mobile number",
+      ellipsis: true,
+      width: 120,
       dataIndex: "phoneNumber",
     },
 
@@ -108,10 +113,12 @@ const Home = () => {
     {
       title: "Recomendation",
       dataIndex: "recommendationPerson",
+      ellipsis: true,
     },
     {
       title: "Status",
       dataIndex: "status",
+      width: 150,
       render: (value, row, index) => {
         return (
           <div
@@ -132,9 +139,9 @@ const Home = () => {
     },
     {
       title: "",
+      width: 40,
       dataIndex: "delete",
       key: "delete",
-      width: "20px",
       render: (value, row, index) => {
         return (
           <DeleteTableRow
@@ -180,9 +187,12 @@ const Home = () => {
         />
       </Row>
       <Row>
+        <div style={{border: '1px solid gray', position: 'sticky', marginTop:'20px'}}>
         <Table
           bordered={true}
-          className="Table table_calendar"
+          // scroll={{
+          //   x: window.innerHeight
+          // }}
           pagination={false}
           columns={columns}
           dataSource={dataSource}
@@ -191,6 +201,7 @@ const Home = () => {
             onClick: (e) => onRowTable(record, index),
           })}
         />
+        </div>
       </Row>
     </>
   );
