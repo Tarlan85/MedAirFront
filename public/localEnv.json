@@ -1,4 +1,4 @@
 {
     
-    "API_BASE": "http://5.189.181.111:8080/api/"
+    "API_BASE": "http://localhost:8080/api/"
 }
