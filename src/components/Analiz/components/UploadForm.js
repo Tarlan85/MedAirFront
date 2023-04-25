@@ -1,4 +1,4 @@
-import { Button, Form, Upload } from "antd";
+import { Button, Form, Input, Upload } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { memo, useState } from "react";
 import { styleInput } from "../../../date/styleInput";
@@ -8,8 +8,6 @@ import sendRequest from "../../../api/sendRequest";
 
 const UploadForm = ({ form }) => {
   const { selectedUploadFormIteem, fileList, setFileList } = useAnalizContext();
-
-  const [imgURL, setImgURL] = useState();
 
   const onChange = (e) => {
     const { fileList: newFileList } = e;
@@ -32,14 +30,14 @@ const UploadForm = ({ form }) => {
     imgWindow?.document.write(image.outerHTML);
   };
 
-  console.log("imgURL", imgURL);
   const beforeUpload = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
 
     let res = await sendRequest("analysesImage", formData, "post");
-    setImgURL(res.data);
-
+    if(res?.data){
+      form.setFieldsValue({analyzesContentUrl: res.data})
+    }
     return false;
   };
 
@@ -52,10 +50,13 @@ const UploadForm = ({ form }) => {
       <Form.Item label="Description" name="analyzesDesc">
         <TextArea rows={3} style={styleInput} />
       </Form.Item>
+      <Form.Item hidden name="analyzesContentUrl">
+        <Input  />
+      </Form.Item>
       <Form.Item name="analyzesContent">
         <Upload
           accept=".png,.pdf,.jpeg,.jpg"
-          action="http://localhost:3000/"
+          // action="http://localhost:3000/"
           listType="picture"
           beforeUpload={beforeUpload}
           defaultFileList={[...fileList]}
@@ -69,9 +70,6 @@ const UploadForm = ({ form }) => {
           )}
         </Upload>
       </Form.Item>
-      {/* {imgURL &&
-			<img src={imgURL} />
-		} */}
     </Form>
   );
 };

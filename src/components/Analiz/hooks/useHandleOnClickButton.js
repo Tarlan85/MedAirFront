@@ -43,6 +43,9 @@ const useHandleOnClickButton = ({ form }) => {
 
     const handleAdd = () => {
         let copydataForm = deepCopy(form.getFieldsValue());
+        copydataForm.analyzesContentName = copydataForm.analyzesContent?.fileList[0]?.name
+        delete copydataForm.analyzesContent
+        console.log('copydataForm',copydataForm)
         copydataForm.key = new Date().getTime();
         copydataForm.Id = new Date().getTime();
         copydataForm.date = moment().format('YYYY-MM-DD HH:mm:ss')

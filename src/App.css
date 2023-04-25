@@ -1,6 +1,7 @@
 @import '~antd/dist/antd.min.css';
 :root {
     --edit-bg-color: blanchedalmond;
+    --pink-color: #FF647F;
   }
   
 .new_button {
@@ -102,7 +103,7 @@
 
 .affixProfile div {
     display: flex;
-    background-color: #FF69B4;
+    background-color: var(--pink-color);
     /* background-color: rgba(228, 228, 228, 0.863) !important; */
 }
 .affixProfile {
@@ -367,8 +368,8 @@
     background-color: red !important;
   }
 .ant-menu-item-selected {
-    background-color: #FF69B4 !important;
+    background-color: var(--pink-color) !important;
 }
 .table_row_pink_color {
-    background-color: #FF69B4 !important;
+    background-color: var(--pink-color) !important;
 }

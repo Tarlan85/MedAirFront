@@ -15,7 +15,7 @@ const HeaderHomePage = () => {
   } = useGlobalContext();
 
   const onClickAdd = () => {
-    setIsAddVisit(true);
+    setIsAddVisit(prev => !prev);
     setformVisitCalendar({});
   };
 

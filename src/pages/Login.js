@@ -28,6 +28,9 @@ const Login = () => {
 
     return (
         <div className="login">
+            <div  style={{display:'flex', justifyContent:'center', alignItems:'center', position:'absolute', top:'0', marginLeft:'70px'}}>
+                <img style={{width:'300px'}} alt='medAir' src={'/images/MedAir.jpg'} />
+            </div>
             <Form
                 name="basic"
                 labelCol={{

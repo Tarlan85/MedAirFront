@@ -30,17 +30,17 @@ const Searchnput = ({ setdataSource }) => {
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
-                <Col sm={24} xs={24} md={12} xl={6}>
+                <Col sm={24} xs={24} md={12} xl={5}>
                     <Form.Item key='patientName' name="patientName" label="Name">
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
-                <Col sm={24} xs={24} md={12} xl={6}>
+                <Col sm={24} xs={24} md={12} xl={5}>
                     <Form.Item key='patientSurName' name="patientSurName" label="Surename">
                         <Input placeholder="Axtar..." />
                     </Form.Item>
                 </Col>
-                <Col sm={24} xs={24} md={12} xl={6}>
+                <Col sm={24} xs={24} md={12} xl={5}>
                     <Form.Item key='phoneNumber' name="phoneNumber" label="Phone number">
                         <Input placeholder="Axtar..." />
                     </Form.Item>

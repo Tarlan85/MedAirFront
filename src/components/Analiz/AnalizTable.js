@@ -38,11 +38,8 @@ const AnalizTable = () => {
             },
             {
                 title: "Image",
-                dataIndex: "analyzesContent",
-                key: "analyzesContent",
-                render: (value, row, index) => {
-                    return row.analyzesContent?.fileList[0]?.name
-                }
+                dataIndex: "analyzesContentName",
+                key: "analyzesContentName",
             },
             {
                 title: "",
