@@ -1,4 +1,4 @@
-import { Col, Form, Input, Row, Spin } from "antd";
+import { Col, Form, Input, InputNumber, Row, Spin } from "antd";
 import React, { memo, useState } from "react";
 import sendRequest from "../../api/sendRequest";
 import useClearDataProfileTables from "./hooks/useClearDataProfileTables";
@@ -31,8 +31,14 @@ const Searchnput = ({ setdataSource }) => {
       wrapperCol={{ span: 16 }}
     >
       <Col sm={24} xs={24} md={12} xl={4}>
-        <Form.Item key="patientId" name="patientId" label="Patient №">
-          <Input placeholder="Axtar..." />
+        <Form.Item
+          labelCol={{ span: 12 }}
+          wrapperCol={{ span: 12 }}
+          key="patientId"
+          name="patientId"
+          label="Patient №"
+        >
+          <InputNumber placeholder="Axtar..." />
         </Form.Item>
       </Col>
       <Col sm={24} xs={24} md={12} xl={5}>
@@ -52,9 +58,9 @@ const Searchnput = ({ setdataSource }) => {
       </Col>
       <Col sm={24} xs={24} md={12} xl={2}>
         <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
-        <button disabled={isSpin} onClick={onSearch} className="new_button">
-          {isSpin ? <Spin /> : "Axtar"}
-        </button>
+          <button disabled={isSpin} onClick={onSearch} className="new_button">
+            {isSpin ? <Spin /> : "Axtar"}
+          </button>
         </Form.Item>
       </Col>
     </Form>

@@ -1,4 +1,4 @@
-import { Affix, Form, Input } from "antd";
+import { Affix, Form, Input, InputNumber } from "antd";
 import React from "react";
 import { useGlobalContext } from "../context/context";
 import { useHandleSavePotient } from "../hooks";
@@ -37,8 +37,13 @@ const Potient = () => {
             className="collapsForm"
             initialValues={formValues.Potient}
           >
-            <Form.Item label="Patient №" name="patientId">
-              <Input readOnly disabled />
+            <Form.Item
+              labelCol={{ span: 12 }}
+              wrapperCol={{ span: 12 }}
+              label="Patient №"
+              name="patientId"
+            >
+              <InputNumber readOnly disabled />
             </Form.Item>
             <Form.Item label="Name" name="patientName">
               <Input />
