@@ -1,11 +1,11 @@
 import axios from "axios";
-// let API_BASE = "http://localhost:8080/api/"
+let API_BASE = "http://localhost:8080/api/"
 
-let API_BASE
+// let API_BASE
 
-axios.get("/localEnv.json").then((res) => {
-  API_BASE = res.data.API_BASE;
-});
+// axios.get("/localEnv.json").then((res) => {
+//   API_BASE = res.data.API_BASE;
+// });
 
 const verificationToken = async (url) => {
   if (url !== "login") {
