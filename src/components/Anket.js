@@ -13,7 +13,7 @@ const { Option } = Select;
 const Anket = (props) => {
   const [form] = Form.useForm();
   const { formValues, setFormValues } = useGlobalContext();
-  const [gender, setgender] = useState("Qadın");
+  const [gender, setgender] = useState("Female");
   const OPTIONS = ["0-6", "6-12", "12-24", "24+"];
 
   const onFieldsChange = ([{ name, value }]) => {
@@ -40,7 +40,7 @@ const Anket = (props) => {
   };
   useEffect(() => {
     if (formValues?.Anket) {
-      formValues.Anket = { ...formValues.Anket, gender: "Gadın" };
+      formValues.Anket = { ...formValues.Anket, gender: "Female" };
       setFormValues(formValues);
     }
   }, []);
@@ -80,10 +80,10 @@ const Anket = (props) => {
                 style={styleInput}
                 allowClear
                 onChange={onChangeSelectGender}
-                defaultValue="Qadın"
+                defaultValue="Female"
               >
-                <Option value="Qadın">Female</Option>
-                <Option value="Kişi">Male</Option>
+                <Option value="Female">Female</Option>
+                <Option value="Male">Male</Option>
               </Select>
             </Form.Item>
 
@@ -120,7 +120,7 @@ const Anket = (props) => {
           </Form>
         </Col>
         <Col xs={24} xl={12}>
-          {gender === "Qadın" && (
+          {gender === "Female" && (
             <>
               <Form
                 form={form}
@@ -134,6 +134,7 @@ const Anket = (props) => {
                   span: 13,
                 }}
                 initialValues={formValues.Anket}
+                labelWrap={true}
               >
                 <Form.Item
                   label="A cure for infertility"
@@ -188,13 +189,6 @@ const Anket = (props) => {
                 >
                   <InputNumber style={styleInput} min={0} defaultValue={0} />
                 </Form.Item>
-
-                {/* <Form.Item
-                                    label="Medications taken"
-                                    name="cureTab"
-                                >
-                                    <TextArea style={styleInput} rows={3} />
-                                </Form.Item> */}
               </Form>
             </>
           )}

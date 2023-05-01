@@ -7,14 +7,14 @@ import { BrowserRouter } from "react-router-dom";
 import { AppProvider } from "./context/context";
 import ErrorBoundary from "./ErrorBoundary";
 import 'antd/dist/antd.min.css';
-// import 'antd/dist/antd.css';
+
 ReactDOM.render(
     <React.StrictMode>
         <ErrorBoundary>
             <BrowserRouter>
                 <AppProvider>
-                {/* <ChakraProvider> */}
-                    <App />
+                    {/* <ChakraProvider> */}
+                        <App />
                     {/* </ChakraProvider> */}
                 </AppProvider>
             </BrowserRouter>

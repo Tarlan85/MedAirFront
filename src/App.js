@@ -9,7 +9,6 @@ import MySider from "./components/MySider";
 
 const { Content } = Layout;
 
-//V5
 
 function App() {
     const {  token } = useGlobalContext();
