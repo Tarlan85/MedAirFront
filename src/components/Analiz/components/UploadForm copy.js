@@ -1,4 +1,4 @@
-import { Button, Form, Image, Input, Upload } from "antd";
+import { Button, Form, Input, Upload } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { memo } from "react";
 import { styleInput } from "../../../date/styleInput";
@@ -7,8 +7,7 @@ import { UploadOutlined } from "@ant-design/icons";
 import sendRequest from "../../../api/sendRequest";
 
 const UploadForm = ({ form }) => {
-  const { selectedUploadFormIteem, fileList, setFileList, selectedRowTable } =
-    useAnalizContext();
+  const { selectedUploadFormIteem, fileList, setFileList, selectedRowTable } = useAnalizContext();
 
   const onChange = (e) => {
     const { fileList: newFileList } = e;
@@ -36,8 +35,8 @@ const UploadForm = ({ form }) => {
     formData.append("file", file);
 
     let res = await sendRequest("analysesImage", formData, "post");
-    if (res?.data) {
-      form.setFieldsValue({ analyzesContentUrl: res.data });
+    if(res?.data){
+      form.setFieldsValue({analyzesContentUrl: res.data})
     }
     return false;
   };
@@ -46,39 +45,34 @@ const UploadForm = ({ form }) => {
     return null;
   }
 
+
   return (
-    <>
+    <Form className="upload_form" form={form}>
       <Form.Item label="Description" name="analyzesDesc">
         <TextArea rows={3} style={styleInput} />
       </Form.Item>
       <Form.Item hidden name="analyzesContentUrl">
-        <Input />
+        <Input  />
       </Form.Item>
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        {selectedRowTable?.analyzesContentUrl ? (
-          <Image width={200} src={selectedRowTable.analyzesContentUrl} />
-        ) : (
-          <Form.Item name="analyzesContent">
-            <Upload
-              accept=".png,.pdf,.jpeg,.jpg"
-              listType="picture"
-              beforeUpload={beforeUpload}
-            >
-              {!fileList[0] ? (
-                <Button icon={<UploadOutlined />}>Upload</Button>
-              ) : (
-                ""
-              )}
-            </Upload>
-          </Form.Item>
-        )}
+      <Form.Item name="analyzesContent">
+        <Upload
+          accept=".png,.pdf,.jpeg,.jpg"
+          listType="picture"
+          beforeUpload={beforeUpload}
+          defaultFileList={[...fileList]}
+          onChange={onChange}
+          onPreview={onPreview}
+        >
+          {!fileList[0] ? (
+            <Button icon={<UploadOutlined />}>Upload</Button>
+          ) : (
+            ""
+          )}
+        </Upload>
       </Form.Item>
-    </>
+    </Form>
   );
 };
 export default memo(UploadForm);
+
+//analyzesContentUrl

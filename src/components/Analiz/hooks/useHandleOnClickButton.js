@@ -15,6 +15,7 @@ const useHandleOnClickButton = ({ form }) => {
         setBreastType,
         setIsEdit,
         setIsNew,
+        setSelectedRowTable,
     } = useAnalizContext();
 
     const { analisesDataTable, setAnalisesDataTable } = useGlobalContext();
@@ -71,6 +72,7 @@ const useHandleOnClickButton = ({ form }) => {
         setIsEdit(true)
     };
     const handleCancel = () => {
+        setSelectedRowTable();
         resetForm();
         setActiveRow(false);
         setIsModalOpen(false);

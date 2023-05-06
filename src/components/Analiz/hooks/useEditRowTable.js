@@ -51,7 +51,7 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
             let copy = deepCopy(selectedRowTable);
             setselectedRowId(copy.Id);
             form.setFieldsValue(copy);
-            setSelectedRowTable();
+            // setSelectedRowTable();
             openOtherForm(copy)
             setIsModalOpen(true);
         }
