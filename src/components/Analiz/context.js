@@ -14,12 +14,10 @@ export const AnalizProvider = ({ children }) => {
   const [selectOption, setSelectOption] = useState();
   const [selectedUploadFormIteem, setSelectedUploadFormIteem] = useState()
   const [breastType, setBreastType] = useState();
-  const [fileList, setFileList] = useState([]);
   const [isNew, setIsNew] = useState(false)
 
     const values = {
         isNew, setIsNew,
-        fileList, setFileList,
         isModalOpen, setIsModalOpen,
         selectOption, setSelectOption,
         selectedUploadFormIteem, setSelectedUploadFormIteem,

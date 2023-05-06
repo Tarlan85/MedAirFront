@@ -7,7 +7,6 @@ import { other, breastSelectOpnions } from "../data";
 const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
     const {
         selectedRowTable,
-        setSelectedRowTable,
         isEdit,
         setIsEdit,
         setActiveRow,
@@ -15,7 +14,6 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
         setSelectOption,
         setSelectedUploadFormIteem,
         setIsModalOpen,
-        setFileList,
     } = useAnalizContext();
     
     const { analisesDataTable, setAnalisesDataTable } = useGlobalContext();
@@ -38,10 +36,6 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
         }
         if(subType){
             setSelectedUploadFormIteem(subType)
-        }
-        if(analyzesContent){
-            const { fileList: newFileList } = analyzesContent;
-            setFileList(newFileList);
         }
     }
 

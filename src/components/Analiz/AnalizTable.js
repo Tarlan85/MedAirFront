@@ -64,7 +64,6 @@ const AnalizTable = () => {
   }, [analisesDataTable, isTableChange]);
 
   const onClickRow = (r) => {
-    console.log('r',r)
     if (!r.key) {
       r.Id = new Date().getTime();
       r.key = r.Id;
