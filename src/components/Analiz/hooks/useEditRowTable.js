@@ -21,15 +21,15 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
     const [selectedRowId, setselectedRowId] = useState();
 
     const openOtherForm = (formObj) => {
-        const { analyzesType, subType, analyzesContent, analyzesSubeType } = formObj
+        const { analyzesType, subType, analyzesContent, analyzesSubType } = formObj
         if(analyzesType){
             setBreastType(analyzesType)
             if (analyzesType === "Breast") {
                 setSelectOption(breastSelectOpnions);
-                setSelectedUploadFormIteem(analyzesSubeType)
+                setSelectedUploadFormIteem(analyzesSubType)
             } else if (analyzesType === "Other analysis") {
                 setSelectOption(other);
-                setSelectedUploadFormIteem(analyzesSubeType)
+                setSelectedUploadFormIteem(analyzesSubType)
             } else {
                 setSelectOption(null);
             }

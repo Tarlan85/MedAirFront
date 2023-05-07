@@ -10,7 +10,6 @@ const BeniganForm = ({ form }) => {
 
     const label = useLabel({ activeRow });
 
-    console.log('form',form.getFieldsValue())
     return (
         <Form
             form={form}

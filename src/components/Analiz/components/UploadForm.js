@@ -115,7 +115,7 @@ const UploadForm = ({ form }) => {
             </div>
           ) : imagePdfUrl ? (
             <div style={{ display: 'flex' }}>
-              <embed src="http://5.189.181.111/1683394649413.pdf" type="application/pdf" width="100%" height="600px"
+              <embed src={imagePdfUrl} type="application/pdf" width="100%" height="600px"
               />
               <div onClick={handleDeleteImg} style={{ cursor: 'pointer', marginLeft: '5px' }}>X</div>
             </div>

@@ -57,6 +57,7 @@ const useHandleOnClickButton = ({ form }) => {
         copydataForm.key = new Date().getTime();
         copydataForm.Id = new Date().getTime();
         copydataForm.date = moment().format('YYYY-MM-DD HH:mm:ss')
+        console.log('copydataForm',copydataForm);
         setAnalisesDataTable([...analisesDataTable, copydataForm]);
         putListToGlobalContext([...analisesDataTable, copydataForm])
         resetForm();

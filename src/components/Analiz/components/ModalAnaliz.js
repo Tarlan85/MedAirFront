@@ -6,6 +6,7 @@ import { useAnalizContext } from "../context";
 import { other, breastSelectOpnions } from "../data";
 import useHandleOnClickButton from "../hooks/useHandleOnClickButton";
 import UploadForm from "./UploadForm";
+import sendRequest from "../../../api/sendRequest";
 
 const selectStyle = { ...styleInput, marginRight: "10px" };
 
@@ -51,20 +52,33 @@ const ModalAnaliz = () => {
       form,
     });
 
+  const fetchAnalysisId = async () => {
+    let res = await sendRequest('analysid')
+    if (res) {
+      return res
+    } else return 0
+  }
+
+  const onClcikAdd = async () => {
+    let analyzesId = await fetchAnalysisId()
+    form.setFieldValue({ analyzesId })
+    handleAdd()
+  }
+
   const footer = activeRow
     ? [
-        <Button onClick={handleEdit}>Edit</Button>,
-        <Button onClick={handleCancel} danger type="primary">
-          Cancel
-        </Button>,
-      ]
+      <Button onClick={handleEdit}>Edit</Button>,
+      <Button onClick={handleCancel} danger type="primary">
+        Cancel
+      </Button>,
+    ]
     : [
-        <Button onClick={handleAdd}>Add</Button>,
-        <Button onClick={handleAddNext}>Add next</Button>,
-        <Button onClick={handleCancel} danger type="primary">
-          Cancel
-        </Button>,
-      ];
+      <Button onClick={onClcikAdd}>Add</Button>,
+      <Button onClick={handleAddNext}>Add next</Button>,
+      <Button onClick={handleCancel} danger type="primary">
+        Cancel
+      </Button>,
+    ];
 
   return (
     <Modal
@@ -74,7 +88,7 @@ const ModalAnaliz = () => {
       footer={footer}
     >
       <Form
-      labelAlign="left"
+        labelAlign="left"
         labelCol={{
           span: 8,
         }}
@@ -86,7 +100,7 @@ const ModalAnaliz = () => {
         }}
         form={form}
       >
-        <Form.Item name="analyzesType" label="Analyzes yype">
+        <Form.Item name="analyzesType" label="Analyzes type">
           <Select
             style={selectStyle}
             defaultValue={"Breast"}
@@ -100,7 +114,7 @@ const ModalAnaliz = () => {
           </Select>
         </Form.Item>
         {selectOption && (
-          <Form.Item label="Analysis type" name="analyzesSubeType">
+          <Form.Item label="Analyses sub type" name="analyzesSubType">
             <Select style={selectStyle} onSelect={onSelectSubType}>
               {selectOption?.map((i) => (
                 <Select.Option key={i} value={i}>
@@ -122,6 +136,9 @@ const ModalAnaliz = () => {
           </Form.Item>
         )}
       </Form>
+
+      <Form.Item name='analyzesId' />
+
     </Modal>
   );
 };
