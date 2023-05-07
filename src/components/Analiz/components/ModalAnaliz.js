@@ -61,7 +61,8 @@ const ModalAnaliz = () => {
 
   const onClcikAdd = async () => {
     let analyzesId = await fetchAnalysisId()
-    form.setFieldValue({ analyzesId })
+    console.log('analyzesId',analyzesId);
+    form?.setFieldsValue?.({ analyzesId })
     handleAdd()
   }
 
