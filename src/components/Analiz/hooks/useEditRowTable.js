@@ -42,24 +42,26 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
     useEffect(() => {
         if (selectedRowTable) {
             resetForm();
+            console.log('selectedRowTable', selectedRowTable);
             let copy = deepCopy(selectedRowTable);
-            setselectedRowId(copy.Id);
+            const analyzesId = selectedRowTable.analyzesId
+            setselectedRowId(analyzesId || copy.Id);
             form.setFieldsValue(copy);
-            // setSelectedRowTable();
             openOtherForm(copy)
             setIsModalOpen(true);
         }
     }, [selectedRowTable]);
 
-    useEffect(() => {
-        if (isEdit) {
+    const edit = () => {
+        try {
             let findIndex = analisesDataTable.findIndex(
-                (i) => i.Id === selectedRowId
+                (i) => i.analyzesId === selectedRowId
             );
-
             let copydataForm = deepCopy(form.getFieldsValue());
             copydataForm.key = selectedRowId;
             copydataForm.Id = selectedRowId;
+            let analyzesId = copydataForm.analyzesId || selectedRowId;
+            copydataForm.analyzesId = analyzesId
             let copyDataSource = deepCopy(analisesDataTable);
             copydataForm.date = copyDataSource[findIndex].date
             copyDataSource[findIndex] = copydataForm;
@@ -69,6 +71,14 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
             setIsEdit();
             setActiveRow();
             setIsModalOpen(false);
+        } catch (error) {
+            console.log('%c error', 'background: red; color: dark', error);
+        }
+    }
+
+    useEffect(() => {
+        if (isEdit) {
+            edit()
         }
     }, [isEdit]);
 

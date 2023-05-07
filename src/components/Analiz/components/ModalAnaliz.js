@@ -1,4 +1,4 @@
-import { Button, Col, Form, Image, Modal, Row, Select } from "antd";
+import { Button, Col, Form, Image, Input, Modal, Row, Select } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { memo, useEffect } from "react";
 import { styleInput } from "../../../date/styleInput";
@@ -140,7 +140,9 @@ const ModalAnaliz = () => {
         )}
       </Form>
 
-      <Form.Item name='analyzesId' />
+      <Form.Item name='analyzesId' hidden>
+        <Input />
+      </Form.Item>
 
     </Modal>
   );

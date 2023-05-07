@@ -28,24 +28,13 @@ const UploadForm = ({ form }) => {
 
   useEffect(() => {
     const url = selectedRowTable?.analyzesContentUrl
-    showImage(url)
-  }, [selectedRowTable?.analyzesContentUrl])
-
-  const onPreview = async (file) => {
-    let src = file.url;
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-
-        reader.onload = () => resolve(reader.result);
-      });
+    if (url) {
+      showImage(url)
+    } else {
+      setImageUrl(null)
+      setImagePdfUrl(null)
     }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow?.document.write(image.outerHTML);
-  };
+  }, [selectedRowTable])
 
   const onChange = (e) => {
     try {
@@ -140,3 +129,23 @@ const UploadForm = ({ form }) => {
   );
 };
 export default memo(UploadForm);
+
+
+
+
+
+const onPreview = async (file) => {
+  let src = file.url;
+  if (!src) {
+    src = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file.originFileObj);
+
+      reader.onload = () => resolve(reader.result);
+    });
+  }
+  const image = new Image();
+  image.src = src;
+  const imgWindow = window.open(src);
+  imgWindow?.document.write(image.outerHTML);
+};

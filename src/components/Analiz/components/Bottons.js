@@ -2,13 +2,14 @@ import React, { memo } from "react";
 import { useAnalizContext } from "../context";
 
 const Bottons = () => {
-    const { setIsModalOpen, setActiveRow, setIsNew } =
+    const { setIsModalOpen, setActiveRow, setIsNew, setSelectedRowTable } =
         useAnalizContext();
 
     const addNew = () => {
         setActiveRow();
         setIsNew(true);
         setIsModalOpen(true);
+        setSelectedRowTable()
     };
     return (
         <>

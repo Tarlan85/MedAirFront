@@ -43,26 +43,28 @@ const useHandleOnClickButton = ({ form }) => {
     const handleAdd = (analyzesId) => {
         let copydataForm = deepCopy(form.getFieldsValue());
         copydataForm.analyzesId = analyzesId
-        copydataForm.key = new Date().getTime();
-        copydataForm.Id = new Date().getTime();
+        copydataForm.key = analyzesId
+        copydataForm.Id = analyzesId
         copydataForm.date = moment().format('YYYY-MM-DD HH:mm:ss')
         setAnalisesDataTable([...analisesDataTable, copydataForm]);
         putListToGlobalContext([...analisesDataTable, copydataForm])
         resetForm();
         setActiveRow();
+        setSelectedRowTable()
         setIsModalOpen(false);
     };
 
     const handleAddNext = (analyzesId) => {
         let copydataForm = deepCopy(form.getFieldsValue());
         copydataForm.analyzesId = analyzesId
-        copydataForm.key = new Date().getTime();
-        copydataForm.Id = new Date().getTime();
+        copydataForm.key = analyzesId
+        copydataForm.Id = analyzesId
         copydataForm.date = moment().format('YYYY-MM-DD HH:mm:ss')
         setAnalisesDataTable([...analisesDataTable, copydataForm]);
         putListToGlobalContext([...analisesDataTable, copydataForm])
         resetForm();
         setActiveRow();
+        setSelectedRowTable()
     };
 
     const handleEdit = () => {

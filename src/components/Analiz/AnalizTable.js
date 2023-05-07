@@ -65,8 +65,8 @@ const AnalizTable = () => {
 
   const onClickRow = (r) => {
     if (!r.key) {
-      r.Id = new Date().getTime();
-      r.key = r.Id;
+      r.Id = r.analyzesId;
+      r.key = r.analyzesId;
     }
     setSelectedRowTable(r);
     setActiveRow(r.key);
