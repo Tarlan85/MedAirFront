@@ -63,6 +63,10 @@ const ModalAnaliz = () => {
     let analyzesId = await fetchAnalysisId()
     handleAdd(analyzesId)
   }
+  const onClcikAddNext = async () => {
+    let analyzesId = await fetchAnalysisId()
+    handleAddNext(analyzesId)
+  }
 
   const footer = activeRow
     ? [
@@ -73,7 +77,7 @@ const ModalAnaliz = () => {
     ]
     : [
       <Button onClick={onClcikAdd}>Add</Button>,
-      <Button onClick={handleAddNext}>Add next</Button>,
+      <Button onClick={onClcikAddNext}>Add next</Button>,
       <Button onClick={handleCancel} danger type="primary">
         Cancel
       </Button>,
@@ -113,7 +117,7 @@ const ModalAnaliz = () => {
           </Select>
         </Form.Item>
         {selectOption && (
-          <Form.Item label="Analyses sub type" name="analyzesSubType">
+          <Form.Item label="Analyses sub type" name="analyzesSubeType">
             <Select style={selectStyle} onSelect={onSelectSubType}>
               {selectOption?.map((i) => (
                 <Select.Option key={i} value={i}>

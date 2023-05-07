@@ -15,26 +15,26 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
         setSelectedUploadFormIteem,
         setIsModalOpen,
     } = useAnalizContext();
-    
+
     const { analisesDataTable, setAnalisesDataTable } = useGlobalContext();
 
     const [selectedRowId, setselectedRowId] = useState();
 
     const openOtherForm = (formObj) => {
-        const { analyzesType, subType, analyzesContent, analyzesSubType } = formObj
-        if(analyzesType){
+        const { analyzesType, subType, analyzesContent, analyzesSubeType } = formObj
+        if (analyzesType) {
             setBreastType(analyzesType)
             if (analyzesType === "Breast") {
                 setSelectOption(breastSelectOpnions);
-                setSelectedUploadFormIteem(analyzesSubType)
+                setSelectedUploadFormIteem(analyzesSubeType)
             } else if (analyzesType === "Other analysis") {
                 setSelectOption(other);
-                setSelectedUploadFormIteem(analyzesSubType)
+                setSelectedUploadFormIteem(analyzesSubeType)
             } else {
                 setSelectOption(null);
             }
         }
-        if(subType){
+        if (subType) {
             setSelectedUploadFormIteem(subType)
         }
     }
