@@ -54,16 +54,14 @@ const ModalAnaliz = () => {
 
   const fetchAnalysisId = async () => {
     let res = await sendRequest('analysid')
-    if (res) {
-      return res
+    if (res?.data) {
+      return res.data
     } else return 0
   }
 
   const onClcikAdd = async () => {
     let analyzesId = await fetchAnalysisId()
-    console.log('analyzesId',analyzesId);
-    form?.setFieldsValue?.({ analyzesId })
-    handleAdd()
+    handleAdd(analyzesId)
   }
 
   const footer = activeRow

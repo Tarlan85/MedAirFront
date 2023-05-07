@@ -40,8 +40,9 @@ const useHandleOnClickButton = ({ form }) => {
 
     useEditRowTable({ resetForm, form, putListToGlobalContext });
 
-    const handleAdd = () => {
+    const handleAdd = (analyzesId) => {
         let copydataForm = deepCopy(form.getFieldsValue());
+        copydataForm.analyzesId = analyzesId
         copydataForm.key = new Date().getTime();
         copydataForm.Id = new Date().getTime();
         copydataForm.date = moment().format('YYYY-MM-DD HH:mm:ss')
