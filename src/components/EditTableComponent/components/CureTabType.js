@@ -31,9 +31,9 @@ const CureTabType = ({dataIndex,title,inputRef, save}) => {
                 className="customSelect detail-select stepSelectCustomer"
                 onBlur={onBlur}
             >
-                            <Option value="Tabletka">Tablet</Option>
-                            <Option value="Ampula">Ampoule</Option>
-                            <Option value="Kapli">Drops</Option>
+                            <Option value="Tablet">Tablet</Option>
+                            <Option value="Ampoule">Ampoule</Option>
+                            <Option value="Drops">Drops</Option>
             </Select>
         </Form.Item>
     );

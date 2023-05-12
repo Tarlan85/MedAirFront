@@ -37,13 +37,19 @@ const LeftForm = ({ form }) => {
                     label={label("Urgent Histology")}
                     name="histologyUrgent"
                 >
-                    <TextArea style={styleInput} rows={3} />
+                    <TextArea
+                        showCount
+                        maxLength={3000}
+                        style={styleInput} rows={3} />
                 </Form.Item>
                 <Form.Item
                     label={label("Histology Final")}
                     name="histologyFinal"
                 >
-                    <TextArea style={styleInput} rows={3} />
+                    <TextArea
+                        showCount
+                        maxLength={3000}
+                        style={styleInput} rows={3} />
                 </Form.Item>
                 {treatmentsType !== "benigen" ? (
                     <>

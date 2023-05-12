@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Badge, Row } from "antd";
+import { Row } from "antd";
 import { Calendar } from "antd";
 import { Table } from "antd";
 import sendRequest from "../../api/sendRequest";
@@ -48,7 +48,6 @@ const Home = () => {
     }
   }, [isAddVisit]);
 
-  function onPanelChange(data, mode) {}
 
   function onChange(val) {
     const data = moment(val._d).format("YYYY-MM-DD 00:00:00");
@@ -182,7 +181,6 @@ const Home = () => {
           dateCellRender={dateCellRender}
           className="CallCalendar"
           fullscreen={false}
-          onPanelChange={onPanelChange}
           onChange={onChange}
         />
       </Row>
@@ -190,9 +188,6 @@ const Home = () => {
         <div style={{border: '1px solid gray', position: 'sticky', marginTop:'20px'}}>
         <Table
           bordered={true}
-          // scroll={{
-          //   x: window.innerHeight
-          // }}
           pagination={false}
           columns={columns}
           dataSource={dataSource}

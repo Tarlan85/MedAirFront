@@ -126,7 +126,6 @@ const useOnRowTable = () => {
     
     try {
       const res = await getAncet(record.patientId)
-      console.log(res.data)
       res.data.birthDate = res.data.birthDate ? moment(res.data.birthDate) : null
       formValues.Anket = res.data;
       formValues.Potient = res.data;

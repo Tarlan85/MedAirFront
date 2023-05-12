@@ -52,19 +52,19 @@ const VisitContent = () => {
                             />
                         </Form.Item>
 
-                <Form.Item label="Address" name="placeName">
-                    <Select style={styleInput} allowClear>
-                        {managersPlaces.map((i) => {
-                            let val =
-                                i.placeName +
-                                " " +
-                                i.placeCity +
-                                " " +
-                                i.placeCountry;
-                            return <Option value={val}>{val}</Option>;
-                        })}
-                    </Select>
-                </Form.Item>
+                        <Form.Item label="Address" name="placeName">
+                            <Select style={styleInput} allowClear>
+                                {managersPlaces.map((i) => {
+                                    let val =
+                                        i.placeName +
+                                        " " +
+                                        i.placeCity +
+                                        " " +
+                                        i.placeCountry;
+                                    return <Option value={val}>{val}</Option>;
+                                })}
+                            </Select>
+                        </Form.Item>
 
                         <Form.Item label={label("Status")} name="status">
                             <Select allowClear style={styleInput}>
@@ -104,7 +104,10 @@ const VisitContent = () => {
                             label={label("Description")}
                             name="visitDesc"
                         >
-                            <TextArea style={styleInput} rows={3} />
+                            <TextArea
+                                showCount
+                                maxLength={3000}
+                                style={styleInput} rows={3} />
                         </Form.Item>
                     </Form>
                 </Col>

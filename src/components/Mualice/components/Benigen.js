@@ -33,18 +33,21 @@ const Benigen = () => {
                     allowClear
                     style={styleInput}
                 >
-                    <Option value="sag">Right</Option>
-                    <Option value="sol">Left</Option>
-                    <Option value="herikisi">Both</Option>
-                    <Option value="sectoral">Sectoral</Option>
-                    <Option value="sectoral round block">
+                    <Select.Option value="right">Right</Select.Option>
+                    <Select.Option value="left">Left</Select.Option>
+                    <Select.Option value="both">Both</Select.Option>
+                    <Select.Option value="sectoral">Sectoral</Select.Option>
+                    <Select.Option value="sectoral round block">
                         Sectoral round block
-                    </Option>
-                    <Option value="expander">Expander</Option>
+                    </Select.Option>
+                    <Select.Option value="expander">Expander</Select.Option>
                 </Select>
             </Form.Item>
             <Form.Item label={label("Description")} name="treatmentTypeDesc">
-                <TextArea style={styleInput} rows={3} />
+                <TextArea
+                    showCount
+                    maxLength={3000}
+                    style={styleInput} rows={3} />
             </Form.Item>
         </>
     );

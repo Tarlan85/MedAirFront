@@ -4,7 +4,7 @@ import CanvasElement from "./CanvasElement";
 import { useCanvasContext } from "./context";
 
 const CanvasComponent = (props) => {
-  const { canvasNumber, images } = props;
+  const { images } = props;
   const { activeKey } = useProfileContext();
   const { convasImagesArrIndex, setImagesLength } = useCanvasContext();
 

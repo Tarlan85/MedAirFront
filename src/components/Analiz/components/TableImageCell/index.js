@@ -60,7 +60,6 @@ function TableImageCell(props) {
               scaleStep: 0.5,
               src: imageUrl,
               onVisibleChange: (value) => {
-                console.log("onVisibleChange value", value);
                 setVisible(value);
               },
             }}

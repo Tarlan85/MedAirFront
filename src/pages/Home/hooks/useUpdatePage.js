@@ -5,7 +5,6 @@ const useUpdatePage = ({ getDataTable }) => {
   const [isChangeDataTable, setIsChangeDataTable] = useState(false);
 
   const updatePage = (row) => {
-    console.log(row.visitDate);
     let time = row?.visitDate
       ? row.visitDate
       : moment().format("YYYY-MM-DD 00:00:00");

@@ -22,7 +22,10 @@ const BeniganForm = ({ form }) => {
             }}
         >
             <Form.Item label={label("Description")} name="benignDescription">
-                <TextArea style={styleInput} rows={3} />
+                <TextArea
+                    showCount
+                    maxLength={3000}
+                    style={styleInput} rows={3} />
             </Form.Item>
         </Form>
     );

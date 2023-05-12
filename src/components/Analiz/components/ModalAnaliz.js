@@ -135,7 +135,10 @@ const ModalAnaliz = () => {
         )}
         {breastType === "Other healthcare area" && (
           <Form.Item label="Description" name="analyzesDesc">
-            <TextArea rows={3} style={selectStyle} />
+            <TextArea
+              showCount
+              maxLength={3000}
+              rows={3} style={selectStyle} />
           </Form.Item>
         )}
       </Form>

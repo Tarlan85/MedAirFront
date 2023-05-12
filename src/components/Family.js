@@ -43,7 +43,7 @@ const Family = () => {
           count += 1;
         });
         setDataList(list);
-      } catch (e) {}
+      } catch (e) { }
     }
   }, []);
 
@@ -96,13 +96,13 @@ const Family = () => {
   const onSelect = (e) => {
     setselectedItem(e);
   };
-  
-  useResetForm({form})
+
+  useResetForm({ form })
 
   return (
     <>
       <Form
-            form={form}
+        form={form}
         className="collapsForm"
         labelAlign="right"
         labelCol={{
@@ -138,7 +138,7 @@ const Family = () => {
               </Select>
             </Form.Item>
 
-            <button style={{marginBottom: "22px"}} className="new_button" onClick={onClickAddFamilyMember}>
+            <button style={{ marginBottom: "22px" }} className="new_button" onClick={onClickAddFamilyMember}>
               Add
             </button>
           </Space>
@@ -147,7 +147,7 @@ const Family = () => {
 
       <div className="family-list">
         <Form
-            form={form}
+          form={form}
           className="collapsForm"
           labelAlign="right"
           labelCol={{
@@ -164,11 +164,11 @@ const Family = () => {
                 style={
                   activList === item.id
                     ? {
-                        backgroundColor: "#F0F8FF",
-                        textDecoration: "underline",
-                        fontSize: "20px",
-                        width: "200px",
-                      }
+                      backgroundColor: "#F0F8FF",
+                      textDecoration: "underline",
+                      fontSize: "20px",
+                      width: "200px",
+                    }
                     : { width: "200px" }
                 }
                 suffix={
@@ -280,7 +280,7 @@ const ModalFamily = (props) => {
         padding: "10px",
         maxWidth: '400px'
       }}
-      
+
     >
       <Form.Item label="Trauma" name="trauma">
         <Input
@@ -305,6 +305,8 @@ const ModalFamily = (props) => {
       </Form.Item>
       <Form.Item label="Description" name="description">
         <TextArea
+          showCount
+          maxLength={3000}
           value={description}
           onChange={(e) => setdescription(e.target.value)}
           rows={3}

@@ -26,7 +26,7 @@ const HeaderMorby = () => {
     }
   }, [formValues.Morbi]);
 
-  useResetForm({form})
+  useResetForm({ form })
 
   return (
     <>
@@ -49,13 +49,22 @@ const HeaderMorby = () => {
             }}
           >
             <Form.Item label="Allergies" name="allergyAvailability">
-              <TextArea style={styleInput} rows={3} />
+              <TextArea
+                showCount
+                maxLength={3000}
+                style={styleInput} rows={3} />
             </Form.Item>
             <Form.Item label="Receved treatement" name="medicationTaken">
-              <TextArea style={styleInput} rows={3} />
+              <TextArea
+                showCount
+                maxLength={3000}
+                style={styleInput} rows={3} />
             </Form.Item>
             <Form.Item label="Initial diagnosis" name="preliminaryDiagnosis">
-              <TextArea allowClear style={styleInput} rows={3} />
+              <TextArea
+                showCount
+                maxLength={3000}
+                allowClear style={styleInput} rows={3} />
             </Form.Item>
             <Form.Item label="Received traumas" name="Received_traumas">
               <Radio.Group
@@ -69,7 +78,10 @@ const HeaderMorby = () => {
             </Form.Item>
             {ownInjuryReason === 1 && (
               <Form.Item label="Description" name="ownInjuryReason">
-                <TextArea style={styleInput} />
+                <TextArea
+                  showCount
+                  maxLength={3000}
+                  style={styleInput} />
               </Form.Item>
             )}
             <Form.Item label="Malignant" name="maliqan">

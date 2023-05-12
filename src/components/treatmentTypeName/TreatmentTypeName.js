@@ -51,7 +51,10 @@ const TreatmentTypeName = (props) => {
                         </Select>
                     </Form.Item>
                     <Form.Item label="Description" name="treatmentTypeDesc">
-                        <TextArea style={styleInput} rows={3} />
+                        <TextArea
+                            showCount
+                            maxLength={3000}
+                            style={styleInput} rows={3} />
                     </Form.Item>
                 </>
             ) : treatmentsType === "benigen" ? (
@@ -67,12 +70,18 @@ const TreatmentTypeName = (props) => {
                         </Select>
                     </Form.Item>
                     <Form.Item label="Description" name="descriptionOfType">
-                        <TextArea style={styleInput} rows={3} />
+                        <TextArea
+                            showCount
+                            maxLength={3000}
+                            style={styleInput} rows={3} />
                     </Form.Item>
                 </>
             ) : treatmentsType ? (
                 <Form.Item label="Description" name="Desc">
-                    <TextArea style={styleInput} rows={3} />
+                    <TextArea
+                        showCount
+                        maxLength={3000}
+                        style={styleInput} rows={3} />
                 </Form.Item>
             ) : (
                 ""

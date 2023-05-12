@@ -19,7 +19,7 @@ const CanvasDesctiptions = ({ imgName, refConvas }) => {
         data = data ? JSON.parse(data) : ''
         if (data?.lines[0]) {
             data.lines.forEach(i => {
-                if(i.brushColor === canvasColor){
+                if (i.brushColor === canvasColor) {
                     colorNumber += 1
                 }
             })
@@ -63,6 +63,8 @@ const CanvasDesctiptions = ({ imgName, refConvas }) => {
                         }}
                     ></div>
                     <TextArea
+                        showCount
+                        maxLength={3000}
                         value={descriptionInputValue}
                         onChange={onChangeDescription}
                         style={styleInput}

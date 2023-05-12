@@ -38,7 +38,10 @@ const UploadForm = (props) => {
     return (
         <div className="upload_form">
             <Form.Item label={label} name={name + "Desc"}>
-                <TextArea rows={3} style={styleInput} />
+                <TextArea
+                    showCount
+                    maxLength={3000}
+                    rows={3} style={styleInput} />
             </Form.Item>
             <ImgCrop rotate>
                 <Upload

@@ -37,7 +37,10 @@ const HeaderMualice = () => {
               <Input style={styleInput} />
             </Form.Item>
             <Form.Item label="Description" name="treatmentDesc">
-              <TextArea style={styleInput} rows={3} />
+              <TextArea
+                showCount
+                maxLength={3000}
+                style={styleInput} rows={3} />
             </Form.Item>
           </Form>
         </Col>
@@ -59,10 +62,16 @@ const HeaderMualice = () => {
               <Input style={styleInput} />
             </Form.Item>
             <Form.Item label="Recommendation" name="recommendation">
-              <TextArea style={styleInput} />
+              <TextArea
+                showCount
+                maxLength={3000}
+                style={styleInput} />
             </Form.Item>
             <Form.Item label="Advise" name="advise">
-              <TextArea style={styleInput} />
+              <TextArea
+                showCount
+                maxLength={3000}
+                style={styleInput} />
             </Form.Item>
           </Form>
         </Col>

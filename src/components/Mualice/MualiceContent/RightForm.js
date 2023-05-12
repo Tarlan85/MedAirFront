@@ -90,15 +90,15 @@ const RightForm = ({ form }) => {
       </Form.Item>
 
       <Form.Item label="Pathologist" name="pathologist">
-            <Select style={styleInput} allowClear>
-              {pathologistsList.map((i) => {
-                return (
-                  <Select.Option value={i.pathologistName}>
-                    {i.pathologistName}
-                  </Select.Option>
-                );
-              })}
-            </Select>
+        <Select style={styleInput} allowClear>
+          {pathologistsList.map((i) => {
+            return (
+              <Select.Option value={i.pathologistName}>
+                {i.pathologistName}
+              </Select.Option>
+            );
+          })}
+        </Select>
       </Form.Item>
 
       <Form.Item label={label("Brest type")} name="breastType">
@@ -132,7 +132,7 @@ const RightForm = ({ form }) => {
       </Form.Item>
       {treatmentsType === "maligan" ? (
         <>
-          <Form.Item label={label("Emeliyyat novu")} name="treatmentSubType">
+          <Form.Item label={label("Əməliyyat növü")} name="treatmentSubType">
             <Select style={styleInput} allowClear>
               <Option value="Organgoruyucu">Organoprotector</Option>
               <Option value="Masektamiya">Masectomy</Option>
@@ -150,7 +150,10 @@ const RightForm = ({ form }) => {
             </Select>
           </Form.Item>
           <Form.Item label={label("Description")} name="treatmentTypeDesc">
-            <TextArea style={styleInput} rows={3} />
+            <TextArea
+              showCount
+              maxLength={3000}
+              style={styleInput} rows={3} />
           </Form.Item>
         </>
       ) : treatmentsType === "benigen" ? (
@@ -166,12 +169,18 @@ const RightForm = ({ form }) => {
             </Select>
           </Form.Item>
           <Form.Item label={label("Description")} name="treatmentTypeDesc">
-            <TextArea style={styleInput} rows={3} />
+            <TextArea
+              showCount
+              maxLength={3000}
+              style={styleInput} rows={3} />
           </Form.Item>
         </>
       ) : treatmentsType ? (
         <Form.Item label={label("Description")} name="treatmentTypeDesc">
-          <TextArea style={styleInput} rows={3} />
+          <TextArea
+            showCount
+            maxLength={3000}
+            style={styleInput} rows={3} />
         </Form.Item>
       ) : (
         ""

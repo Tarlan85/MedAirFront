@@ -82,7 +82,10 @@ const UploadForm = ({ form }) => {
   return (
     <>
       <Form.Item label="Description" name="analyzesDesc">
-        <TextArea rows={3} style={styleInput} />
+        <TextArea
+          showCount
+          maxLength={3000}
+          rows={3} style={styleInput} />
       </Form.Item>
       <Form.Item hidden name="analyzesContentUrl">
         <Input />

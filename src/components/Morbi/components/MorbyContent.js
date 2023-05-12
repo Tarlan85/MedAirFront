@@ -58,7 +58,10 @@ const MorbyContent = () => {
             <Input style={styleInput} />
           </Form.Item>
           <Form.Item label={label("Complaints")} name="complaintDescription">
-            <TextArea style={styleInput} rows={3} />
+            <TextArea
+              showCount
+              maxLength={3000}
+              style={styleInput} rows={3} />
           </Form.Item>
         </Form>
       </Col>

@@ -20,8 +20,8 @@ const MaliganFormİtem = ({ name, form }) => {
   useEffect(() => {
     let defaultChecked = form.getFieldsValue()[name.toLowerCase() + "Description"] ? true : false
     setChecked(defaultChecked);
-    form.setFieldsValue({ [name.toLowerCase()]: defaultChecked})
-  },[])
+    form.setFieldsValue({ [name.toLowerCase()]: defaultChecked })
+  }, [])
 
 
   return (
@@ -48,7 +48,10 @@ const MaliganFormİtem = ({ name, form }) => {
         label={label("Description")}
         name={name.toLowerCase() + "Description"}
       >
-        <TextArea style={styleInput} rows={2} />
+        <TextArea
+          showCount
+          maxLength={3000}
+          style={styleInput} rows={2} />
       </Form.Item>
     </Form>
   );
