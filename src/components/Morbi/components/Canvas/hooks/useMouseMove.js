@@ -22,7 +22,6 @@ const useMouseMove = ({refConvas, imgName}) => {
     };
 
     const getDescriptionPointColor = (arr, x, y) => {
-        console.log('arr',arr);
         arr.forEach((i,index) => {
             let isIf = false
             i.points.forEach(c => {
@@ -39,8 +38,6 @@ const useMouseMove = ({refConvas, imgName}) => {
                         }
                     })
                     let findEl = arrSelectedColors.find(f => f.index === index)
-                    console.log('descriptions',descriptionsCanvas);
-                    console.log('imgName + i.brushColor + findEl.num',imgName + i.brushColor + findEl.num);
                     setDescriptionInputValue(descriptionsCanvas[imgName + i.brushColor + findEl.num])
                     setCanvasColor(i.brushColor)
                 }else{

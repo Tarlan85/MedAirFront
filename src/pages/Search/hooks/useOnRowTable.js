@@ -78,6 +78,19 @@ const useOnRowTable = () => {
       console.log(e);
     }
   };
+  
+  const getAnalyses = async (id) => {
+    let res = await sendRequest("analyses/" + id, {}, "get");
+    try {
+      if (res.data[0]) {
+        let dataAT = res.data;
+        setAnalisesDataTable(dataAT);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  
   const getTreatment = async (id) => {
     let res = await sendRequest("treatment/" + id, {}, "get");
     try {
@@ -88,17 +101,6 @@ const useOnRowTable = () => {
         let recipeList = res.data.recipeList;
         setRecipeList(treatmentDynamics);
         setListRecipe(recipeList);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  const getAnalyses = async (id) => {
-    let res = await sendRequest("analyses/" + id, {}, "get");
-    try {
-      if (res.data[0]) {
-        let dataAT = res.data;
-        setAnalisesDataTable(dataAT);
       }
     } catch (e) {
       console.log(e);

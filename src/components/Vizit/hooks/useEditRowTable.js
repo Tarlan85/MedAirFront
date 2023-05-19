@@ -49,7 +49,6 @@ const useEditRowTable = ({ resetForm, form, putListToGlobalContext }) => {
             let copy = deepCopy(selectedRowTable);
             setselectedRowId(copy.Id);
             copy.visitDate = moment(copy.visitDate);
-            console.log('copy',copy)
             selectedVisitReason(copy);
             form.setFieldsValue(copy);
             setSelectedRowTable();

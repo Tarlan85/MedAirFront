@@ -48,7 +48,6 @@ export const AppProvider = ({ children }) => {
         isAddVisit, setIsAddVisit,
         isAddNewRow, setisAddNewRow,
         formVisitCalendar, setformVisitCalendar,
-        listRecipe, setListRecipe,
         analizFileList, setAnalizFileList,
         managersPlaces, setManagersPlaces,
         patientID, setPatientID,

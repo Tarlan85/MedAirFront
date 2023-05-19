@@ -20,8 +20,8 @@ const AnalizTable = () => {
       },
       {
         title: "Sub Type",
-        dataIndex: "analyzesSubeType",
-        key: "analyzesSubeType",
+        dataIndex: "analyzesSubType",
+        key: "analyzesSubType",
       },
       {
         title: "Description",

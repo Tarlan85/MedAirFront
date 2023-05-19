@@ -117,7 +117,7 @@ const ModalAnaliz = () => {
           </Select>
         </Form.Item>
         {selectOption && (
-          <Form.Item label="Analyses sub type" name="analyzesSubeType">
+          <Form.Item label="Analyses sub type" name="analyzesSubType">
             <Select style={selectStyle} onSelect={onSelectSubType}>
               {selectOption?.map((i) => (
                 <Select.Option key={i} value={i}>

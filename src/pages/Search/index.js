@@ -37,7 +37,9 @@ const Search = () => {
             key: "birthPlace",
         },
     ];
+
     const { onRowTable } = useOnRowTable()
+    
     return (
         <>
             <Searchnput setdataSource={setdataSource} />
